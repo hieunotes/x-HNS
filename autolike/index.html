@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <meta name="description" content="Share What I Know - Chia sẻ những gì mà tôi biết">
+                        <meta name="author" content="TrungHieuVNTN">
+                              <title>The Hieu Notes |  Autolike</title>      <!-- Twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+                  <meta name="twitter:site" content="@VNTNPE">
+                        <meta name="twitter:creator" content="@VNTNPE">
+                              <meta name="twitter:title" content="The Hieu Notes">
+                                    <meta name="twitter:description" content="Chia sẻ những gì tôi biết - Share what i know">
+                                          <meta name="twitter:image" content="https://i.imgur.com/7c7g6YX.jpg">
+                                                
+      <!-- Facebook -->
+            <meta property="og:url" content="https://hieunotes.ga">
+                  <meta property="og:title" content="The Hieu Notes">
+                        <meta property="og:description" content="Chia sẻ những gì tôi biết - Share what i know">
+                              <meta property="og:type" content="website">
+                                    <meta property="og:image" content="https://i.imgur.com/7c7g6YX.jpg">
+                                          <meta property="og:image:type" content="image/png">
+                                                 
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <style>
+img[alt="www.000webhost.com"]{display:none};
+   </style>
+</head>
+<body>
+<div style="padding:0.5rem !important" >
+<div class="panel panel-primary">
+<div class="text panel-heading">
+Autolike của TrungHieuVNTN
+</div>
+<div class="panel-body">
+<div class="alert alert-success">
+Chỉ cho phép like tối đa là 5 bài nhiều quá Facebook block tính năng like -_-
+</div>
+<div class="form-group">
+<label>Nhập token</label>
+<input id="token" class="form-control" type="text">
+   <label>Cảm xúc</label>
+    <select class="emoji form-control">
+     <option value="like">LIKE</option>
+      <option value="haha">HAHA</option>
+      <option value="wow">WOW</option>
+      <option value="love">LOVE</option>
+      <option value="sad">SAD</option>
+      <option value="angry">Angry</option>
+    </select>
+    <label>ID người muốn like</label>
+   <input id="id" class="form-control" type="text">
+<label>Số lượng bài viết muốn like</label>
+   <input id="lm" class="form-control" type="text">
+<br>
+<div class="warning alert alert-danger"></div>
+<br>
+<button style="width:100%" class="col-12 btn btn-success" id="like">Được rồi like thôi!</button>
+  </div>
+</div>
+</div>
+<div class="result panel panel-primary">
+<div class="panel-heading">
+Kết quả
+</div>
+<div class="re panel-body">
+<!--<img src="ld.gif" width="30" height="30" style="margin: auto"><b>  Đang like bài viết, vui lòng chờ...</b>-->
+</div>
+</div>
+<!-- Start of CuterCounter Code -->
+<a href="http://www.cutercounter.com/" target="_blank"><img src="http://www.cutercounter.com/hit.php?id=grfaqcc&nd=6&style=27" border="0" alt="website counter"></a>
+<!-- End of CuterCounter Code -->
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script type="text/javascript">
+if(Cookies.get("token") === undefined){
+var token = $("#token").val()
+}
+if(Cookies.get("token") != undefined){
+var token = $("#token").val(Cookies.get("token"))
+}
+
+$(".warning, .result").hide()
+$("#lm").val("5")
+$("#like").click(function(){
+ $(".re").empty()
+var token = $("#token").val()
+var id = $("#id").val()
+var lm = $("#lm").val()
+var emoji = $("option:selected").val()
+
+if(id === "" || token === ""){
+$(".result").hide()
+    $(".warning").fadeIn(100).text("Vui lòng điền token và ID")
+setTimeout(function() {
+    $('.warning').fadeOut('3000');
+}, 2000);
+}
+if(token != "" && id != ""){
+Cookies.set("token",token, { expires: 7 })
+$(".warning").hide()
+    $(".result").fadeIn(2000)
+    $(".re").append('<img src="ld.gif" width="30" height="30" style="margin: auto"><b>  Đang like bài viết, vui lòng chờ...</b>')
+    //$(".body").html('')
+//setTimeout(function() {
+    //$('.body').fadeOut('3000');
+jQuery.ajax({
+    type: "GET",
+   url: "likes.php?id=" + id + "&type=" +emoji+ "&lm=" + lm +"&token=" +token,
+    ///data:{id: id,type: type, token: token},
+    success: function(data) {
+  $(".re").html(data)     
+    }
+});
+///}, 5000); 
+}})
+</script>
+</body>
+</html>
