@@ -2,8 +2,8 @@
 
 $madvi = "PB0501";
 $madvii ="";
-$date = date('d-m-Y');
-$tomorrow = date('d-m-Y',strtotime($date . "+7 days"));
+$date = date('d-m-Y',strtotime("+1 days"));
+$tomorrow = date('d-m-Y',strtotime("+7 days"));
    
  
  if ($_SERVER["REQUEST_METHOD"] === "GET") {
