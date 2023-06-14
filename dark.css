@@ -1,0 +1,15 @@
+*{
+  color:#ffffff;
+}
+
+body{
+      background-color: #111827;
+    }
+.cont{
+  background-color: #111827;
+  color:#ffffff;
+  border-bottom: 0.5px solid #fff;
+}
+a, b{
+  color: #ffffff !important;
+}
