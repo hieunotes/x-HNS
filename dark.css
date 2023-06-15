@@ -10,6 +10,9 @@ body{
   color:#ffffff;
   border-bottom: 0.5px solid #fff;
 }
-a, b{
+b{
   color: #ffffff !important;
+}
+a{
+  color: #0275d8;
 }
