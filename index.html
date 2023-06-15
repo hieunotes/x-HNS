@@ -64,17 +64,6 @@
 
 <!--- Nội dung--->  
  <div class="container mt-4">
-
-   <div class="form-check">
-  <input class="form-check-input" type="checkbox"   data-mdb-toggle="collapse"
-  href="#collapse"
-  role="button">
-  <label class="fw-300 form-check-label" for="flexCheckChecked">
-    Hiển thị nội dung bài viết.
-  </label>
-</div>
-
-
 <div class="load mt-3 spinner-border" role="status"><span class="visually-hidden">...</span></div>
 
 
@@ -117,14 +106,14 @@ $.ajax({
       
    
            
-        $.each(data, function(index, element) {
+        $.each(data.reverse(), function(index, element) {
           
           
       
    
  $('.load').hide()
             
-           $('#cont').append('<div class="pt-3"><div class="w-100 p-2 cont"><div class="w-100 "><a href="'+element.link+'" class="text-decoration-none"><h1 class="text-break fw-700">'+element.title+'</h1></a><p class="fw-300 fs-6">'+element.date+'</p><div class="collapse mt-3 scroll-section" id="collapse"><p class="fw-400">'+element.content+'</p></div></div></div></div>'); 
+           $('#cont').append('<div class="pt-3"><div class="w-100 p-2 cont"><div class="w-100 "><a href="'+element.link+'" class="text-decoration-none"><h1 class="text-break fw-700">'+element.title+'</h1></a><p class="fw-300 fs-6">'+element.date+'</p><div class="mt-3 scroll-section"><p class="fw-400">'+element.content+'</p></div></div></div></div>'); 
            
         });
     }
