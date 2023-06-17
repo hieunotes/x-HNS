@@ -149,7 +149,7 @@ if (!getUrlParameter('id') || !getUrlParameter('id').trim()) {
     success: function (data) {
         $.each(data.reverse(), function(index, element) {
           $('.load').hide();
-           $('#cont').append('<div class="pt-3"><div class="w-100 p-2 cont"><div class="w-100 "><a href="'+element.link+'?id='+element.id+'" class="text-decoration-none"><h2 class="text-break fw-700">'+element.title+'</h2></a><p class="fw-300 fs-6">'+element.date+' - '+element.author+'</p><div class="mt-3 scroll-section text-break"><div class="fw-400 fs-6">'+Autolinker.link(element.content)+'</div></div></div></div></div>'); 
+           $('#cont').append('<div class="pt-3 p-2"><div class="cont"><p class="fw-400 text-muted">'+element.date+'</p><a href="'+element.link+'?id='+element.id+'" class="mt-0 text-decoration-none"><h1 class="text-break fw-700">'+element.title+'</h1></a></div></div><hr/>'); 
            
         });
     }
