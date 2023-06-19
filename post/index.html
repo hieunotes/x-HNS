@@ -36,7 +36,11 @@
           readonly/>
         </div>
     
-    
+      <div class="form-group">
+          <label for="link-input">Liên kết</label>
+          <input type="text" id="link-input" name="link" class="form-control" readonly/>
+               </div>
+      
     
         <div class="form-group">
           <label for="title-input">Tiêu đề</label>
@@ -45,15 +49,6 @@
             name="title"
             class="form-control form-control-lg"
           required/>
-        </div>
-        <div class="form-group">
-          <label for="link-input">Liên kết</label>
-          <input type="url" id="link-input" name="link" class="form-control" list="datalistOptions" required/>
-          <datalist id="datalistOptions">
- <option value="https://harrydang.pages.dev">
- <option value="https://hieunotes.vercel.app/">
-</datalist>
-
         </div>
           <div class="form-group">
           <label for="link-input">Ngày</label>
@@ -109,7 +104,8 @@
 <script>    
  
  
- 
+ $('#link-input').val('/')
+    
 $.ajax({
    type: 'GET',
    url: 'https://opensheet.elk.sh/1u-2O6yMLwxTBHGtqCCQJdyhjCJCUnbsdFJHZ8kGRdHc/Web!A1:Z1000',
