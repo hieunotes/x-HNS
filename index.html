@@ -58,7 +58,7 @@
   font-weight: 900
 } 
 .w-15{
-  width: 15em;
+  width: 100% !important;
 }
 .footer{
   margin-top: 10em;
@@ -73,7 +73,7 @@
    <nav class="breadcrumb is-centered mt-3" aria-label="breadcrumbs">
     <ul>
       <li><a id="btn__vnexpress" href="#">Đọc báo</a></li>
-      <li><a id="btn__post" href="post.html">Bài viết</a></li>
+      <li><a id="btn__post" href="/post.html">Bài viết</a></li>
         <li><a id="btn__contact" href="#footer">Liên hệ</a></a></li>
      </ul>
   </nav>  
@@ -84,10 +84,10 @@
 <!---Ảnh đại diện ---> 
  <div class="has-text-centered">
         <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://cf.jare.io/?u=https://tayninhkysu.com/hns/img/avatar.png"/>
+            <img class="is-rounded" src="https://relay.jare.io/?u=https://tayninhkysu.com/hns/img/avatar.png"/>
         </figure>
         <br>
-        <h1 class="title mt-2">@hieunotes</h1>
+        <a href="https://www.facebook.com/Hieunotes" target="_blank"><h1 class="title mt-2">@hieunotes</h1></a>
     </div>
 <!--- END --->    
 
@@ -108,7 +108,11 @@
  
  
  <!--- Liên kết --->
- <div class="mt-5">
+ <div class="p-1 columns">
+   
+   
+ <div class="mt-5 box column is-half
+ is-offset-one-quarter">
 <!--- FACEBOOK --->  
 <div class="btn">
   <a href="https://fb.com/harrydang.03" target="_blank">
@@ -186,6 +190,7 @@
 
  </div>
  </div>
+ </div>
  <!--- End liên kết mxh --->
  
  <!--- Đọc tin tức --->
@@ -237,9 +242,10 @@
  
  
  <script src="https://harrydang.pages.dev/fw/jq.js?v=15072023"></script>
-  <script async="async" defer="defer" src="https://harrydang.pages.dev/fw/vnexpress.js?v=15072023"></script>
+  <script async="async" defer="defer" src="/fw/vnexpress.js?v=15072023"></script>
  
  <script>
+ 
 $("#btn__vnexpress").click(function() {
   $('html, body').animate({
   scrollTop: $("#vnexpress").offset().top
