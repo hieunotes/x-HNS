@@ -323,6 +323,8 @@
         </script>
 <script>
 $(document).ready(function() {
+ 
+            
   $(".scroll-link").click(function(e) {
     e.preventDefault();
 
@@ -331,13 +333,9 @@ $(document).ready(function() {
     var offset = $(target).offset().top;
 
     $("html, body").animate({ scrollTop: offset }, duration);
-  });
-  
-  
-  
-  
-$(document).ready(function() {
-
+  })
+ 
+ 
   // Check for click events on the navbar burger icon
   $(".navbar-burger").click(function() {
 
@@ -346,9 +344,9 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
 
   });
-});  
   
 });
+
 </script>
   </body>
   </html>
