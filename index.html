@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-  <html lang="vi" style=" background-color: #eff2f7;">
+  <html lang="vi" style="background-color: #eff2f7;">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +19,14 @@
      
      <!-- Open Graph / Facebook -->
      <meta property="og:type" content="website" />
-     <meta property="og:url" content="https://hieunotes.blogspot.com/" />
+     <meta property="og:url" content="https://hieunotes.vercel.app/" />
      <meta property="og:title" content="hieunotes" />
      <meta property="og:description" content="Lắng nghe để hiểu, nhìn lại để thương." />
      <meta property="og:image" content="https://s6.imgcdn.dev/v2l9S.png" />
      
      <!-- Twitter -->
      <meta property="twitter:card" content="summary_large_image" />
-     <meta property="twitter:url" content="https://hieunotes.blogspot.com/" />
+     <meta property="twitter:url" content="https://hieunotes.vercel.app/" />
      <meta property="twitter:title" content="hieunotes" />
      <meta property="twitter:description" content="Lắng nghe để hiểu, nhìn lại để thương." />
      <meta property="twitter:image" content="https://s6.imgcdn.dev/v2l9S.png" />
@@ -36,11 +36,14 @@
 
 
 <!--- Font --->
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
 <!--- END --->
 
 <!--- import Lib css --->    
-<link rel="stylesheet" href="https://harrydang.pages.dev/fw/lib.css?v=15072023">  
+<link rel="stylesheet" href="https://tayninhkysu.com/hns/fw/lib.css?v=15072023">  
+<link rel="stylesheet" href="https://tayninhkysu.com/hns/fw/plyr.css">
 <!--- End --->    
 
 <!--- CSS tùy chỉnh --->    
@@ -55,10 +58,12 @@
 }
 .title{
   font-size: 1.5rem;
-  font-weight: 900
 } 
 .w-15{
   width: 100% !important;
+}
+.info strong{
+  color:hsl(348, 100%, 61%) !important
 }
 .footer{
   margin-top: 10em;
@@ -69,50 +74,108 @@
   </head>
   <body>
  
-  <div class="navbar is-fixed-top">
-   <nav class="breadcrumb is-centered mt-3" aria-label="breadcrumbs">
-    <ul>
-      <li><a id="btn__vnexpress" href="#">Đọc báo</a></li>
-      <li><a id="btn__post" href="/post.html">Bài viết</a></li>
-        <li><a id="btn__contact" href="#footer">Liên hệ</a></a></li>
-     </ul>
-  </nav>  
-</div>    
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+   <div class="navbar-brand">
+     <a class="navbar-item" href="/">
+       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmobvmbhltuVEzuUmEbDHmwWnBz8r8fIUf9oPk-T5nus5piCEvOUr3_fAzOrEm_26kT7tQRaLn0TYpssbydDAAK1slO_8icFsdd_G5-cN26h5kFbNs66itPP5HFTim01M1ee6gcJB2mx0EgooT86dZRPcBf-FdkGX9uNAVOCePcnskcA/s1600/20230709_184938_0000.png" width="auto" height="28">
+     </a>
+ 
+     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+       <span aria-hidden="true"></span>
+       <span aria-hidden="true"></span>
+       <span aria-hidden="true"></span>
+     </a>
+   </div>
+ 
+   <div id="navbarBasicExample" class="navbar-menu">
+     <div class="navbar-start">
+     <a class="scroll-link navbar-item" data-target="#vnexpress" href="#">Đọc báo</a>
+<a class="navbar-item"href="/post.html">Bài viết</a>
+<a class="scroll-link navbar-item" data-target="#contact" href="#">Liên hệ</a>
+<a class="scroll-link navbar-item" data-target="#footer" href="#">Chân trang</a>
+ 
+     </div>
+   </div>
+ </nav>
+ 
+ 
  
    
   <div  id="contact" class="container">
 <!---Ảnh đại diện ---> 
  <div class="has-text-centered">
         <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://relay.jare.io/?u=https://tayninhkysu.com/hns/img/avatar.png"/>
+            <img class="is-rounded" src="https://tayninhkysu.com/hns/img/avatar.png"/>
         </figure>
         <br>
-        <a href="https://www.facebook.com/Hieunotes" target="_blank"><h1 class="title mt-2">@hieunotes</h1></a>
+        <a class="title is-4" href="https://www.facebook.com/Hieunotes" target="_blank"><b>@hieunotes</b></a>
+<div class="info">     
+       <p class="mt-4" style="font-size:0.8em;" >    
+       <strong>Hieunotes</strong> và <strong>Harry Dang</strong><br>Được vận hành bởi <strong>Đặng Hiếu</strong>.
+  </p>
+  </div>
     </div>
 <!--- END --->    
 
-<!--- Liên kết mxh ---> 
 
+<!---  Info & Liên kết mxh --->
 <div class="mt-6 has-text-centered">
+ <div class="columns is-multiline">
  
+ 
+ 
+ 
+ <!--- Thông tin chung --->
+ <section class="column">
  <div class="has-text-black">
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
   </svg>
   <br>
-  <strong>Thông tin liên hệ</strong>
+  <strong>Thông tin chung</strong>
 
 </div>
 
+
+ <div class="mt-5 box">
+
+ <div class="content is-4 has-text-centered">
+   
+<div id="info"></div>
+ 
+     </div>    
+
+
+
+
+
+
+   </div>
+</section>
+ <!--- End Giới thiệu--->
  
  
  
+ 
+ 
+ 
+<!--- THÔNG TIN LIÊN HỆ ---> 
+<section class="column mt-5">
+ <div class="has-text-black">
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+
+  </svg>
+  <br>
+  <strong>Thông tin liên hệ</strong>
+</div>
+
+ 
+
  <!--- Liên kết --->
- <div class="p-1 columns">
    
    
- <div class="mt-5 box column is-half
- is-offset-one-quarter">
+ <div class="mt-5 box">
 <!--- FACEBOOK --->  
 <div class="btn">
   <a href="https://fb.com/harrydang.03" target="_blank">
@@ -183,15 +246,14 @@
 
 
 
-
-
-
-
-
  </div>
+  </section>
+  
  </div>
+  <!--- End liên kết mxh --->
  </div>
- <!--- End liên kết mxh --->
+<!--- END TTLH --->
+
  
  <!--- Đọc tin tức --->
  
@@ -216,6 +278,12 @@
  
  
  </div>
+ 
+ 
+ 
+ 
+ 
+ 
  <footer class="footer" id="footer">
    <div class="content has-text-centered">
      <p>
@@ -233,31 +301,54 @@
 
 
 <br><br>
-  <a href="#top" id="btnTop"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="has-text-black" viewBox="0 0 16 16">
+  <a class="scroll-link" data-target="#contact" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="has-text-black" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
   </svg></a>
    </div>
  </footer>
  
  
+ <script src="https://tayninhkysu.com/hns/fw/jq.js?v=15072023"></script>
+  <script async="async" defer="defer" src="https://tayninhkysu.com/hns/fw/vnexpress.js"></script>
  
- <script src="https://harrydang.pages.dev/fw/jq.js?v=15072023"></script>
-  <script async="async" defer="defer" src="/fw/vnexpress.js?v=15072023"></script>
+ <script src="https://tayninhkysu.com/hns/fw/info.js"></script>
  
- <script>
  
-$("#btn__vnexpress").click(function() {
-  $('html, body').animate({
-  scrollTop: $("#vnexpress").offset().top
-  }, 2000);
-  });
+ <script src="https://tayninhkysu.com/hns/fw/plyr.js"></script>
+ <script type="text/javascript">
 
- $("#btn__contact").click(function() {
-  $('html, body').animate({
-  scrollTop: $("#contact").offset().top
-  }, 2000);
-  });
+            var audioPlayer = new Plyr('#audioPlayer');
 
-  </script>
+            audioPlayer.play();
+        </script>
+<script>
+$(document).ready(function() {
+  $(".scroll-link").click(function(e) {
+    e.preventDefault();
+
+    var target = $(this).data("target");
+    var duration = 2000;
+    var offset = $(target).offset().top;
+
+    $("html, body").animate({ scrollTop: offset }, duration);
+  });
+  
+  
+  
+  
+$(document).ready(function() {
+
+  // Check for click events on the navbar burger icon
+  $(".navbar-burger").click(function() {
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+
+  });
+});  
+  
+});
+</script>
   </body>
   </html>
