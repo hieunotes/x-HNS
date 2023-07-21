@@ -42,8 +42,8 @@
 <!--- END --->
 
 <!--- import Lib css --->    
-<link rel="stylesheet" href="https://tayninhkysu.com/hns/fw/lib.css?v=15072023">  
-<link rel="stylesheet" href="https://tayninhkysu.com/hns/fw/plyr.css">
+<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/lib.css">  
+<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/plyr.css">
 <!--- End --->    
 
 <!--- CSS tùy chỉnh --->    
@@ -51,6 +51,45 @@
 *{
     font-family: 'Comfortaa',sans-serif !important;
 }
+
+/* LOADING */
+    @keyframes loadbaralt {
+ 0%,to { left: 0; right: 80% }
+ 25%,75% { left: 0; right: 0 }
+ 50% { left: 80%; right: 0 }
+}
+
+.gg-loadbar-alt,
+.gg-loadbar-alt::before,
+.gg-loadbar-alt::after {
+ display: block;
+ box-sizing: border-box;
+ height: 4px;
+ border-radius: 4px
+}
+
+.gg-loadbar-alt {
+ position: relative;
+ transform: scale(var(--ggs,1));
+ width: 18px
+}
+
+.gg-loadbar-alt::after,
+.gg-loadbar-alt::before {
+ background: currentColor;
+ content: "";
+ position: absolute
+}
+
+.gg-loadbar-alt::before {
+ animation: loadbaralt 2s cubic-bezier(0,0,.58,1) infinite
+}
+
+.gg-loadbar-alt::after {
+ width: 18px;
+ opacity: .3
+} 
+/* END LOADING css*/
 
 .container{
   padding: 1rem;
@@ -68,6 +107,10 @@
 .footer{
   margin-top: 10em;
   height:30em !important;
+}
+
+.plyr {
+  border-radius: 4px;
 }
 </style> 
 <!--- END ---> 
@@ -105,7 +148,7 @@
 <!---Ảnh đại diện ---> 
  <div class="has-text-centered">
         <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://tayninhkysu.com/hns/img/avatar.png"/>
+            <img class="is-rounded" src="https://hieunotes.tayninhkysu.com/img/avatar.png"/>
         </figure>
         <br>
         <a class="title is-4" href="https://www.facebook.com/Hieunotes" target="_blank"><b>@hieunotes</b></a>
@@ -138,17 +181,11 @@
 
 
  <div class="mt-5 box">
-
  <div class="content is-4 has-text-centered">
-   
-<div id="info"></div>
- 
-     </div>    
-
-
-
-
-
+  
+  <div id="header"></div>
+ <div id="content"></div>
+      </div>    
 
    </div>
 </section>
@@ -268,9 +305,32 @@
   <div class="mt-4">
   
   
-  <div class="vnexpress"></div>
-  
-
+    <div class="has-text-centered">
+  <div class="select">
+    <select id="select">
+      <option value="tin-moi-nhat">Tin mới nhất</option>
+      <option value="tin-noi-bat">Tin nổi bật</option>
+      <option value="thoi-su">Thời sự</option>
+      <option value="the-gioi">Thế giới</option>
+      <option value="kinh-doanh">Kinh doanh</option>
+      <option value="giai-tri">Giải trí</option>
+      <option value="the-thao">Thể thao</option>
+      <option value="phap-luat">Pháp luật</option>
+      <option value="giao-duc">Giáo dục</option>
+      <option value="suc-khoe">Sức khoẻ</option>
+      <option value="doi-song">Đời sống</option>
+      <option value="du-lich">Du lịch</option>
+      <option value="khoa-hoc">Khoa học</option>
+      <option value="so-hoa">Số hoá</option>
+      <option value="oto-xe-may">Xe</option>
+      <option value="y-kien">Ý kiến</option>
+      <option value="tam-su">Tâm sự</option>
+      <option value="cuoi">Cười</option>
+    </select>
+  </div>
+  <i class="mt-2 mx-auto gg-loadbar-alt"></i>
+</div>
+<div class="mt-3 columns is-multiline is-12" id="result"></div>
  </div>
  <!--- END --->
 
@@ -307,24 +367,83 @@
    </div>
  </footer>
  
+<script src="https://hieunotes.tayninhkysu.com/fw/jq.js?v=15072023"></script>
+<script src="https://hieunotes.tayninhkysu.com/fw/plyr.js"></script>
  
- <script src="https://tayninhkysu.com/hns/fw/jq.js?v=15072023"></script>
-  <script async="async" defer="defer" src="https://tayninhkysu.com/hns/fw/vnexpress.js"></script>
+ <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js?v=20072023"></script>
+  
+ <script src="https://loktar00.github.io/JQuery-Snowfall/snowfall.jquery.min.js"></script>
  
- <script src="https://tayninhkysu.com/hns/fw/info.js"></script>
+ <script src=""></script>
  
  
- <script src="https://tayninhkysu.com/hns/fw/plyr.js"></script>
- <script type="text/javascript">
-
-            var audioPlayer = new Plyr('#audioPlayer');
-
-            audioPlayer.play();
-        </script>
+ <!--- VnExpress --->
 <script>
-$(document).ready(function() {
+$(document).ready((function() {
+  
+  // Generate a random number between 1 and 1000
+    var random = Math.floor(Math.random() * 1000) + 1;
+
+    // Load JSON data from the script with a random parameter to avoid caching
+    $.getJSON("https://hieunotes.tayninhkysu.com/info.json?rand=" + random, function(data) {
+      // Process the JSON data here
+     $("#header").html(data.header);
+     $("#content").html(data.content);
+    });
+  
+  
+  
+  
+  
+  $("#select").on("change", (function() {
+    var t = $(this).val();
+    $(".gg-loadbar-alt").show(), $.ajax({
+      url: "https://hieunotes.tayninhkysu.com/news.php?name=" + t,
+      method: "GET",
+      dataType: "json",
+      success: function(t) {
+        $("#result").empty();
+        var o = t.items;
+        $.each(o, (function(o, a) {
+          var i = a.title,
+            e = a.link,
+            n = (a.image, a.description),
+            l = a.date,
+            s = (a.id, "");
+          s += '<div class="column is-one-quarter is-4"><div class="box cont" style="height:" id="capture-area">', s += '<a href="' + e + '"  target="_blank"><h1 id="title" class="title">' + i + "</h1></a>", s += '<span id="link" style="font-size:0.9rem">' + l + "</span>", s += '<div class="mt-3"><p  id="cont">' + n + "</p></div>", s += '<button style="text-decoration: none;"class="capture-btn button is-ghost"><p  style="height:0.3rem;font-size:0.7rem;">VnExpress// ' + t.name + "</p></button>", s += "</div></div>", $(".gg-loadbar-alt").hide(), $("#result").append(s)
+        })), $(".capture-btn").click((function(t) {
+          var o, a = (o = new Date).getDate() + "/" + (o.getMonth() + 1) + "/" + o.getFullYear() + "_" + (1, 10289, Math.floor(10289 * Math.random()) + 1);
+          t.stopPropagation();
+          var i = $(this).closest(".cont")[0];
+          html2canvas(i).then((function(t) {
+            var o = t.toDataURL("image/png"),
+              i = document.createElement("a");
+            i.href = o, i.download = "hns_" + a + ".png", i.click()
+          }))
+        }))
+      }
+    })
+  })), $("#select").trigger("change")
+}));
+  </script> 
+ <!--- E - VnExpress --->
  
-           
+
+
+ <!--- Player --->
+ <script type="text/javascript">
+ $(document).ready(function() {
+  
+/// Flag snow
+$(document).snowfall({
+               image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg",
+               minSize: 15,
+               maxSize: 15,
+               maxSpeed: 2,
+               flakeCount: 10
+             });
+ //// End Flag snow
+
   $(".scroll-link").click(function(e) {
     e.preventDefault();
 
@@ -346,7 +465,6 @@ $(document).ready(function() {
   });
   
 });
-
 </script>
   </body>
   </html>
