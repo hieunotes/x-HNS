@@ -70,7 +70,7 @@ img , iframe{
     
 <nav class="border-bottom navbar">
   <div class="container-fluid">
-    <a class="fw-bold navbar-brand" href="/"><b class="fs-2">hi /hieunotes</b></a>
+    <a class="fw-bold navbar-brand" href="/post"><b class="fs-2">hi /hieunotes</b></a>
     <aside>
   <dark-mode-toggle
     id="dark-mode-toggle"
@@ -181,7 +181,9 @@ if (!getUrlParameter('id') || !getUrlParameter('id').trim()) {
 
   if (getUrlParameter('id') > lastIndex){  
  $('#cont').text('Có vẻ ID bài viết không tồn tại trong hệ thống? ID bài viết mới nhất là: ' + lastIndex);
- 
+ setTimeout(function() {
+  window.location.href = "/post";
+}, 2000);
   } 
   else{
       $.getJSON(url, function(data) {
