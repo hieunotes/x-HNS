@@ -41,7 +41,7 @@
     *{
     font-family: 'Comfortaa',sans-serif !important;
 }
-#history {
+#history, #month {
 max-height: 550px; /* Giới hạn chiều cao của phần tử chứa dữ liệu */
 overflow-y: auto; /* Hiển thị thanh trình cuộn theo chiều dọc khi nội dung dài hơn chiều cao tối đa */
 }
@@ -98,7 +98,7 @@ overflow-y: auto; /* Hiển thị thanh trình cuộn theo chiều dọc khi n�
 
 <div class="column">
  <h1 class="title is-dark is-4 has-text-centered p-1">CHI TIÊU THEO THÁNG</h1>
-        <div id="month"></div>
+   <div id="month"></div>
 
 </div>
 
@@ -128,6 +128,7 @@ overflow-y: auto; /* Hiển thị thanh trình cuộn theo chiều dọc khi n�
 
 
  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
 $(document).ready(function() {
 
@@ -148,17 +149,17 @@ var tt = data[0]["tt"];//tổng thu
 var tct = data[0]["tct"];//tổng chi tiêu
 var td = data[0]["td"];//tổng dư
 /// Tiền mặt
-$('#ttm').html(ttm);
-$('#tctm').html(tctm);
-$('#tmcl').html(tmcl);
+$('#ttm').text(ttm);
+$('#tctm').text(tctm);
+$('#tmcl').text(tmcl);
 /// Tiền thẻ
-$('#ttt').html(ttt);
-$('#tctt').html(tctt);
-$('#ttcl').html(ttcl);
+$('#ttt').text(ttt);
+$('#tctt').text(tctt);
+$('#ttcl').text(ttcl);
 // Tổng
-$('#tt').html(tt);
-$('#tct').html(tct);
-$('#td').html(td);
+$('#tt').text(tt);
+$('#tct').text(tct);
+$('#td').text(td);
    }
  })
  // End chi tiêu
