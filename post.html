@@ -160,7 +160,7 @@ if (!getUrlParameter('id') || !getUrlParameter('id').trim()) {
           }
           
           $('.load').hide();
-           $('#cont').append('<div class="pt-3 p-2"><div class="cont"><p class="fw-400 text-muted">'+element.date+'</p><a href="/post.html?id='+element.id+'" class="mt-0 text-decoration-none"><h1 class="text-break fw-700">'+element.title+'</h1></a><p>'+des+'</p></div></div><hr/>'); 
+           $('#cont').append('<div class="pt-3 p-2"><div class="cont"><p class="fw-400 text-muted">'+element.date+'</p><a href="#'+element.id+'" class="mt-0 text-decoration-none"><h1 class="text-break fw-700">'+element.title+'</h1></a><p>'+des+'</p></div></div><hr/>'); 
            
         });
     }
