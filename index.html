@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-  <html lang="vi">
+  <html lang="vi" style="background-color:#FAFAFA;">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +19,14 @@
      
      <!-- Open Graph / Facebook -->
      <meta property="og:type" content="website" />
-     <meta property="og:url" content="https://hieunotes.vercel.app/" />
+     <meta property="og:url" content="/" />
      <meta property="og:title" content="hieunotes" />
      <meta property="og:description" content="Lắng nghe để hiểu, nhìn lại để thương." />
      <meta property="og:image" content="https://s6.imgcdn.dev/v2l9S.png" />
      
      <!-- Twitter -->
      <meta property="twitter:card" content="summary_large_image" />
-     <meta property="twitter:url" content="https://hieunotes.vercel.app/" />
+     <meta property="twitter:url" content="/" />
      <meta property="twitter:title" content="hieunotes" />
      <meta property="twitter:description" content="Lắng nghe để hiểu, nhìn lại để thương." />
      <meta property="twitter:image" content="https://s6.imgcdn.dev/v2l9S.png" />
@@ -42,9 +42,7 @@
 <!--- END --->
 
 <!--- import Lib css --->    
-<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/lib.css"/>  
-<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/plyr.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/lib.css"/> 
 <!--- End --->    
 
 <!--- CSS tùy chỉnh --->    
@@ -52,46 +50,6 @@
 *{
     font-family: 'Comfortaa',sans-serif !important;
 }
-
-/* LOADING */
-    @keyframes loadbaralt {
- 0%,to { left: 0; right: 80% }
- 25%,75% { left: 0; right: 0 }
- 50% { left: 80%; right: 0 }
-}
-
-.gg-loadbar-alt,
-.gg-loadbar-alt::before,
-.gg-loadbar-alt::after {
- display: block;
- box-sizing: border-box;
- height: 4px;
- border-radius: 4px
-}
-
-.gg-loadbar-alt {
- position: relative;
- transform: scale(var(--ggs,1));
- width: 18px
-}
-
-.gg-loadbar-alt::after,
-.gg-loadbar-alt::before {
- background: currentColor;
- content: "";
- position: absolute
-}
-
-.gg-loadbar-alt::before {
- animation: loadbaralt 2s cubic-bezier(0,0,.58,1) infinite
-}
-
-.gg-loadbar-alt::after {
- width: 18px;
- opacity: .3
-} 
-/* END LOADING css*/
-
 .container{
   padding: 1rem;
   padding-top: 5em;
@@ -105,28 +63,22 @@
 .info strong{
   color:hsl(348, 100%, 61%) !important
 }
-.footer{
+footer{
   margin-top: 10em;
-  height:30em !important;
-}
-
-.plyr {
-  border-radius: 4px;
+    padding: 20px; /* You can adjust padding as needed */
+    box-sizing: border-box;
+    height: 100%;
 }
 </style> 
 <!--- END ---> 
   </head>
-  <body>
- 
- 
- 
- 
- 
+  <body id="head" style="background-color:#FADADD">
+
+
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
    <div class="navbar-brand">
      <a class="navbar-item" href="/">
-       <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmobvmbhltuVEzuUmEbDHmwWnBz8r8fIUf9oPk-T5nus5piCEvOUr3_fAzOrEm_26kT7tQRaLn0TYpssbydDAAK1slO_8icFsdd_G5-cN26h5kFbNs66itPP5HFTim01M1ee6gcJB2mx0EgooT86dZRPcBf-FdkGX9uNAVOCePcnskcA/s1600/20230709_184938_0000.png" width="auto" height="28">
-     </a>
+    <strong style="color:hsl(348, 100%, 61%)">hieunotes</strong>     </a>
  
      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
        <span aria-hidden="true"></span>
@@ -137,8 +89,6 @@
  
    <div id="navbarBasicExample" class="navbar-menu">
      <div class="navbar-start">
-<a class="navbar-item scroll-link" data-target="#head" href="#">Bài viết</a>  
-     <a class="scroll-link navbar-item" data-target="#vnexpress" href="#">Đọc báo</a>
 <a class="scroll-link navbar-item" data-target="#contact" href="#">Liên hệ</a>
 <a class="scroll-link navbar-item" data-target="#footer" href="#">Chân trang</a>
  
@@ -187,14 +137,14 @@
   <div id="header"></div>
  <div id="content"></div>
       </div>    
+<div id="contact"></div> 
 
    </div>
 </section>
  <!--- End Giới thiệu--->
- 
 
 <!--- THÔNG TIN LIÊN HỆ ---> 
-<section id="contact" class="column mt-5">
+<section class="column mt-5">
  <div class="has-text-black">
   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
@@ -288,68 +238,6 @@
  </div>
 <!--- END TTLH --->
 
-
-<!-- BÀI VIẾT --->
-  <div  id="head"  class="mt-6 has-text-black has-text-centered" id="post">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.2635 2.29289C20.873 1.90237 20.2398 1.90237 19.8493 2.29289L18.9769 3.16525C17.8618 2.63254 16.4857 2.82801 15.5621 3.75165L4.95549 14.3582L10.6123 20.0151L21.2189 9.4085C22.1426 8.48486 22.338 7.1088 21.8053 5.99367L22.6777 5.12132C23.0682 4.7308 23.0682 4.09763 22.6777 3.70711L21.2635 2.29289ZM16.9955 10.8035L10.6123 17.1867L7.78392 14.3582L14.1671 7.9751L16.9955 10.8035ZM18.8138 8.98525L19.8047 7.99429C20.1953 7.60376 20.1953 6.9706 19.8047 6.58007L18.3905 5.16586C18 4.77534 17.3668 4.77534 16.9763 5.16586L15.9853 6.15683L18.8138 8.98525Z" fill="currentColor" /><path d="M2 22.9502L4.12171 15.1717L9.77817 20.8289L2 22.9502Z" fill="currentColor" /></svg>
-<br>
-  <strong>Bài viết</strong>
-</div>
-
- <br>
-   <div class="has-text-centered">
- <div class="load"><p>Đang tải dữ liệu...</p></div>
-</div> 
- <div id="cont" class="mt-5"></div>
-
-
-
-<!--- end BÀI VIẾT --->
-
-
- <!--- Đọc tin tức --->
- 
- <div class="mt-6 has-text-black has-text-centered" id="vnexpress">
- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
-    <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
-    <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
-  </svg>
-  <br>
-  <strong>Tin tức VnExpress</strong>
-</div>
-  <div class="mt-4">
-  
-  
-    <div class="has-text-centered">
-  <div class="select">
-    <select id="select">
-      <option value="tin-moi-nhat">Tin mới nhất</option>
-      <option value="tin-noi-bat">Tin nổi bật</option>
-      <option value="thoi-su">Thời sự</option>
-      <option value="the-gioi">Thế giới</option>
-      <option value="kinh-doanh">Kinh doanh</option>
-      <option value="giai-tri">Giải trí</option>
-      <option value="the-thao">Thể thao</option>
-      <option value="phap-luat">Pháp luật</option>
-      <option value="giao-duc">Giáo dục</option>
-      <option value="suc-khoe">Sức khoẻ</option>
-      <option value="doi-song">Đời sống</option>
-      <option value="du-lich">Du lịch</option>
-      <option value="khoa-hoc">Khoa học</option>
-      <option value="so-hoa">Số hoá</option>
-      <option value="oto-xe-may">Xe</option>
-      <option value="y-kien">Ý kiến</option>
-      <option value="tam-su">Tâm sự</option>
-      <option value="cuoi">Cười</option>
-    </select>
-  </div>
-  <i class="mt-2 mx-auto gg-loadbar-alt"></i>
-</div>
-<div class="mt-3 columns is-multiline is-12" id="result"></div>
- </div>
- <!--- END --->
-
-
  
  
  </div>
@@ -376,104 +264,25 @@
 
 
 <br><br>
-  <a class="scroll-link" data-target="#contact" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="has-text-black" viewBox="0 0 16 16">
+  <a class="scroll-link" data-target="#head" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="has-text-black" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z" />
   </svg></a>
   
+    <figure style="text-align: center;">
+            <img src="https://s6.imgcdn.dev/9pQEd.png" class="image is-128x128 is-centered"/>
+        </figure>
+     
   </div>
  </footer>
  
 <script src="https://hieunotes.tayninhkysu.com/fw/jq.js?v=15072023"></script>
-<script src="https://hieunotes.tayninhkysu.com/fw/plyr.js"></script>
- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js?v=20072023"></script>
  <script src="https://loktar00.github.io/JQuery-Snowfall/snowfall.jquery.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script> 
 
- <!--- VnExpress --->
-<script>
-$(document).ready((function() {
-  $('.btn_back').hide()
 
-function convertTimestampToDateTime(timestamp) {
-  var date = new Date(timestamp);
-  var year = date.getFullYear();
-  var month = "0" + (date.getMonth() + 1); // Tháng bắt đầu từ 0
-  var day = "0" + date.getDate();
-  var hours = date.getHours();
-  var minutes = "0" + date.getMinutes();
-  var seconds = "0" + date.getSeconds();
-  
-  // Định dạng ngày tháng và giờ: dd/mm/yyyy giờ:phút:giây
-  var formattedDateTime = day.substr(-2) + '/' + month.substr(-2) + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-  
-  return formattedDateTime;
-}
-
-function removeHtmlTags(inputHtml) {
-  // Tạo một DOMParser
-  var parser = new DOMParser();
-  
-  // Phân tích đoạn văn thành một tài liệu DOM
-  var parsedDoc = parser.parseFromString(inputHtml, 'text/html');
-  
-  // Trích xuất nội dung văn bản từ tài liệu DOM
-  var plainText = parsedDoc.body.textContent || "";
-  
-  return plainText;
-}
-
-  
- function player() {
-   const player = new Plyr(".player");
-}
-
-   const dataUrl = 'https://rss-to-json-serverless-api.vercel.app/api?feedURL=https://hieunotes.wordpress.com/feed/';
-
-  function loadPosts() {
-    $.ajax({
-      type: 'GET',
-      url: dataUrl,
-      dataType: 'json',
-      success: function(data) {
-          // Hiển thị danh sách các bài viết
-    
-     
-          data.items.forEach(function(element) {
-        console.log(element.title) 
-             
-       $('#cont').append(`
-              <div data-aos="fade-up" class="box">
-                <div class="p-1">
-                  <p class="subtitle is-6">${convertTimestampToDateTime(element.published)}</p>
-                  <h1 class="title mt-3">${element.title}</h1>
-                  <p class="mt-3 content">${removeHtmlTags(element.description)}</p>
-                  <button class="short-content button is-ghost">Xem thêm</button>
-               <div class="mt-3 full-content" style="display: none;">
-  ${element.content_encoded}
-</div>
-                </div>
-              </div>`);
-          });
-          
-  player()        
-          $('.load').hide();
-  $(".short-content").click(function() {
-  $(this).siblings('.content').hide();
-  $(this).next(".full-content").show();
-  $(this).hide();
-});
-        }
-    });
-  }
-
-  // Gọi hàm để tải dữ liệu bài viết ban đầu
-  loadPosts();
-
- 
-  // Generate a random number between 1 and 1000
+ <!--- Player --->
+ <script type="text/javascript">
+ $(document).ready(function() {
+ // Generate a random number between 1 and 1000
     var random = Math.floor(Math.random() * 1000) + 1;
 
     // Load JSON data from the script with a random parameter to avoid caching
@@ -482,53 +291,14 @@ function removeHtmlTags(inputHtml) {
      $("#header").html(data.header);
      $("#content").html(data.content);
     });
-  
-  $("#select").on("change", (function() {
-    var t = $(this).val();
-    $(".gg-loadbar-alt").show(), $.ajax({
-      url: "https://hieunotes.tayninhkysu.com/news.php?name=" + t,
-      method: "GET",
-      dataType: "json",
-      success: function(t) {
-        $("#result").empty();
-        var o = t.items;
-        $.each(o, (function(o, a) {
-          var i = a.title,
-            e = a.link,
-            n = (a.image, a.description),
-            l = a.date,
-            s = (a.id, "");
-          s += '<div  data-aos="fade-up" class="column is-one-quarter is-4"><div class="box cont" style="height:" id="capture-area">', s += '<a href="' + e + '"  target="_blank"><h1 id="title" class="title">' + i + "</h1></a>", s += '<span id="link" style="font-size:0.9rem">' + l + "</span>", s += '<div class="mt-3"><p  id="cont">' + n + "</p></div>", s += '<button style="text-decoration: none;"class="capture-btn button is-ghost"><p  style="height:0.3rem;font-size:0.7rem;">VnExpress// ' + t.name + "</p></button>", s += "</div></div>", $(".gg-loadbar-alt").hide(), $("#result").append(s)
-        })), $(".capture-btn").click((function(t) {
-          var o, a = (o = new Date).getDate() + "/" + (o.getMonth() + 1) + "/" + o.getFullYear() + "_" + (1, 10289, Math.floor(10289 * Math.random()) + 1);
-          t.stopPropagation();
-          var i = $(this).closest(".cont")[0];
-          html2canvas(i).then((function(t) {
-            var o = t.toDataURL("image/png"),
-              i = document.createElement("a");
-            i.href = o, i.download = "hns_" + a + ".png", i.click()
-          }))
-        }))
-      }
-    })
-  })), $("#select").trigger("change")
-}));
-  </script> 
- <!--- E - VnExpress --->
- 
-
-
- <!--- Player --->
- <script type="text/javascript">
- $(document).ready(function() {
-  
+   
 /// Flag snow
 $(document).snowfall({
-               image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg",
+               image: "https://s6.imgcdn.dev/9pCYe.png",
                minSize: 15,
                maxSize: 15,
                maxSpeed: 2,
-               flakeCount: 10
+               flakeCount: 30
              });
  //// End Flag snow
 
