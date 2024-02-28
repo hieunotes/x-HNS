@@ -54,18 +54,15 @@
   padding: 1rem;
   padding-top: 5em;
 }
-.w-15{
-  width: 100% !important;
-}
 .info strong{
   color:hsl(348, 100%, 61%) !important
 }
-footer{
-  margin-top: 10em;
-    padding: 20px; /* You can adjust padding as needed */
-    box-sizing: border-box;
-    height: 100%;
-}
+  footer{
+    margin-top: 10em;
+      padding: 20px; /* You can adjust padding as needed */
+      box-sizing: border-box;
+      height: 100%;
+  }
 </style> 
 <!--- END ---> 
   </head>
@@ -79,8 +76,7 @@ footer{
         <figure class="image is-128x128 is-inline-block">
             <img class="is-rounded" src="https://hieunotes.tayninhkysu.com/img/img.php"/>
         </figure>
-        <br>
-        <a class="title is-4" href="https://www.facebook.com/Hieunotes" target="_blank"><b>Harry Đặng</b></a>
+        <br> <b class="title is-3">Harry Đặng</b>
 <div class="info">     
        <p class="mt-4" style="font-size:0.8em;" >    
        <strong>Được vận hành bởi <a href="https://www.facebook.com/harrydang.03"  target="_blank">Đặng Trung Hiếu</a></strong>.
@@ -90,27 +86,33 @@ footer{
 <!--- END --->   
 
 
-
-
+<br/><br/>
+<!-- TRANG QUẢN LÝ -->
 <div class="content">
-  <ol type="1">
-    <li><strong>Hieunotes</strong></li>
-   <a href="https://www.facebook.com/Hieunotes" target="_blank"><p style="font-size: 0.6rem;" class="is-light">https://www.facebook.com/Hieunotes</p></a> 
-    <li><strong>Tây Ninh Wanderlust</strong></li>
-    <a href="https://www.facebook.com/tayninhwanderlust.24" target="_blank">  <p style="font-size: 0.6rem;" class="is-light">https://www.facebook.com/tayninhwanderlust.24</p></a>
-    <li><strong>Socola Virus</strong></li>
-  <a href="https://www.facebook.com/tayninh.2020" target="_blank"><p style="font-size: 0.6rem;" class="is-light">https://www.facebook.com/tayninh.2020</p></a>
-  </ol>
+   <h1 class="title is-5">
+      <strong>Page</strong>
+    </h1>
+  <ol id="pageList" type="1">
+    </ol>
 </div>  
   
-  
+  <!-- ỨNG DỤNG -->
 <div class="content">
     <h1 class="title is-5">
-      <strong>APP</strong>
+      <strong>App</strong>
     </h1>
- <ol type="1">
-   <li><a href="https://hieunotes.tayninhkysu.com/lcd/">Xem lịch cúp điện Tây Ninh</a></li>
-   <li><a href="https://hieunotes.tayninhkysu.com/shorturl">Rút gọn liên kết</a></li>
+ <ol id="appList" type="1">
+ </ol>
+ </div> 
+  
+ <br> 
+<!-- THÔNG BÁO -->  
+  <div class="content">
+    <h1 class="title is-5">
+      <strong>Notification</strong>
+    </h1>
+ <ol id="notiList" type="1">
+
  </ol>
  </div> 
   
@@ -123,10 +125,10 @@ footer{
  
  
  
- <footer class="footer" id="footer">
+ <footer>
    <div class="content has-text-centered">
      <p>
-       &copy 2024 <strong>HarryDang</strong>. All rights reserved
+       &copy 2024 <strong>Harry Dang</strong>
      </p>
 <br>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify" viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="id1"><path d="M 2.449219 5.457031 L 26.402344 5.457031 L 26.402344 22.878906 L 2.449219 22.878906 Z M 2.449219 5.457031 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#id1)"><path fill="rgb(85.488892%, 14.509583%, 11.369324%)" d="M 23.734375 5.457031 L 5.121094 5.457031 C 3.652344 5.457031 2.460938 6.65625 2.460938 8.136719 L 2.460938 20.195312 C 2.460938 21.675781 3.652344 22.878906 5.121094 22.878906 L 23.734375 22.878906 C 25.203125 22.878906 26.390625 21.675781 26.390625 20.195312 L 26.390625 8.136719 C 26.390625 6.65625 25.203125 5.457031 23.734375 5.457031 Z M 23.734375 5.457031 " fill-opacity="1" fill-rule="nonzero"/></g><path fill="rgb(100%, 100%, 0%)" d="M 15.589844 12.851562 L 14.425781 9.238281 L 13.261719 12.851562 L 9.492188 12.851562 L 12.542969 15.085938 L 11.375 18.699219 L 14.425781 16.464844 L 17.476562 18.699219 L 16.3125 15.085938 L 19.363281 12.851562 Z 5.589844 12.851562 " fill-opacity="1" fill-rule="nonzero"/></svg> 
@@ -140,5 +142,64 @@ footer{
  
   </div>
  </footer>
+ 
+ <!-- Script -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+<script>
+
+
+
+// Thời gian lưu trữ cache (1 tuần tính bằng mili giây)
+var cacheExpiration = 7 * 24 * 60 * 60 * 1000; // 1 tuần
+
+$(document).ready(function() {
+    var api_url = "https://opensheet.elk.sh/1u-2O6yMLwxTBHGtqCCQJdyhjCJCUnbsdFJHZ8kGRdHc/web!A1:Z100";
+
+    // Kiểm tra xem dữ liệu có được lưu trong cache không và xem dữ liệu có còn hợp lệ không
+    var cachedData = localStorage.getItem('cachedData');
+    var cacheTime = localStorage.getItem('cacheTime');
+    if (cachedData && cacheTime && (new Date().getTime() - parseInt(cacheTime) < cacheExpiration)) {
+        // Sử dụng dữ liệu từ cache nếu có và nó vẫn còn hợp lệ
+        processData(JSON.parse(cachedData));
+    } else {
+        // Nếu không có dữ liệu trong cache hoặc dữ liệu đã hết hạn, gửi yêu cầu GET đến API JSON
+        $.get(api_url, function(data) {
+            // Lưu dữ liệu vào cache với thời gian hết hạn
+            localStorage.setItem('cachedData', JSON.stringify(data));
+            localStorage.setItem('cacheTime', new Date().getTime().toString()); // Lưu thời gian hiện tại
+            // Xử lý dữ liệu
+            processData(data);
+        });
+    }
+});
+
+// Hàm xử lý dữ liệu
+function processData(data) {
+    // Lặp qua mỗi mục trong mảng JSON
+    $.each(data, function(index, item) {
+        // Kiểm tra và hiển thị dữ liệu (không lưu cache cho item.txt)
+        if (item.pageName && item.pageLink && item.pageName.trim() !== "" && item.pageLink.trim() !== "") {
+            var pageItem = $("<li></li>").appendTo("#pageList");
+            $("<strong></strong>").text(item.pageName).appendTo(pageItem);
+            $("<br>").appendTo(pageItem);
+            $("<a></a>").attr({ "href": item.pageLink, "target": "_blank", "style": "font-size: 0.6rem" }).text(item.pageLink).appendTo(pageItem);
+        }
+        if (item.appName && item.appLink && item.appName.trim() !== "" && item.appLink.trim() !== "") {
+            var appItem = $("<li></li>").appendTo("#appList");
+            $("<a></a>").attr({ "href": item.appLink, "target": "_blank" }).text(item.appName).appendTo(appItem);
+        }
+        if (item.txt && item.txt.trim() !== "") {
+            // Không lưu cache cho item.txt
+            var notiItem = $("<li></li>").appendTo("#notiList");
+            $("<p></p>").text(item.txt).appendTo(notiItem);
+        }
+    });
+}
+
+
+</script> 
+ 
+
   </body>
   </html>
