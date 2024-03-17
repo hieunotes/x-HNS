@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
   <html lang="vi">
   <head>
@@ -22,8 +23,7 @@
      <meta property="og:title" content="hieunotes" />
      <meta property="og:description" content="Hãy là chính mình, đừng là ai khác. Be Yourself , don't be anyone else." />
      <meta property="og:image" content="https://s6.imgcdn.dev/v2l9S.png" />
-     <meta name="facebook-domain-verification" content="n53eqe18x6dw4bnkpashby00nnfrht" />
-    
+     
      <!-- Twitter -->
      <meta property="twitter:card" content="summary_large_image" />
      <meta property="twitter:url" content="/" />
@@ -42,7 +42,7 @@
 <!--- END --->
 
 <!--- import Lib css --->    
-<link rel="stylesheet" href="https://hieunotes.tayninhkysu.com/fw/lib.css"/> 
+<link rel="stylesheet" href="https://cf.jare.io/?u=https://hieunotes.tayninhkysu.com/fw/lib.css"/> 
 <!--- End --->    
 
 <!--- CSS tùy chỉnh --->    
@@ -50,6 +50,7 @@
 *{
     font-family: 'Comfortaa',sans-serif !important;
 }
+
 .container{
   padding: 1rem;
   padding-top: 5em;
@@ -74,7 +75,7 @@
 <!---Ảnh đại diện ---> 
  <div class="hide has-text-centered">
         <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://hieunotes.tayninhkysu.com/img/img.php"/>
+            <img class="is-rounded" src="https://cf.jare.io/?u=https://hieunotes.tayninhkysu.com/img/avatar_nobg.svg"/>
         </figure>
         <br> <b class="title is-3">Harry Đặng</b>
 <div class="info">     
@@ -143,62 +144,46 @@
   </div>
  </footer>
  
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "73ac20764ac94212bf199152d29d88c6"}'></script><!-- End Cloudflare Web Analytics -->
-
-    <!-- Script -->
+ <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "73ac20764ac94212bf199152d29d88c6"}'></script><!-- End Cloudflare Web Analytics -->
+ <!-- Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 
 <script>
-
-
-
-// Thời gian lưu trữ cache (1 tuần tính bằng mili giây)
-var cacheExpiration = 7 * 24 * 60 * 60 * 1000; // 1 tuần
-
 $(document).ready(function() {
     var api_url = "https://opensheet.elk.sh/1u-2O6yMLwxTBHGtqCCQJdyhjCJCUnbsdFJHZ8kGRdHc/web!A1:Z100";
 
-    // Kiểm tra xem dữ liệu có được lưu trong cache không và xem dữ liệu có còn hợp lệ không
-    var cachedData = localStorage.getItem('cachedData');
-    var cacheTime = localStorage.getItem('cacheTime');
-    if (cachedData && cacheTime && (new Date().getTime() - parseInt(cacheTime) < cacheExpiration)) {
-        // Sử dụng dữ liệu từ cache nếu có và nó vẫn còn hợp lệ
-        processData(JSON.parse(cachedData));
-    } else {
-        // Nếu không có dữ liệu trong cache hoặc dữ liệu đã hết hạn, gửi yêu cầu GET đến API JSON
-        $.get(api_url, function(data) {
-            // Lưu dữ liệu vào cache với thời gian hết hạn
-            localStorage.setItem('cachedData', JSON.stringify(data));
-            localStorage.setItem('cacheTime', new Date().getTime().toString()); // Lưu thời gian hiện tại
-            // Xử lý dữ liệu
-            processData(data);
+    // Sử dụng jQuery để gửi yêu cầu GET đến API JSON
+    $.get(api_url, function(data) {
+        // Lặp qua mỗi mục trong mảng JSON
+        $.each(data, function(index, item) {
+            // Kiểm tra nếu pageName và pageLink đều tồn tại và không rỗng
+            if (item.pageName && item.pageLink && item.pageName.trim() !== "" && item.pageLink.trim() !== "") {
+                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
+                var pageItem = $("<li></li>").appendTo("#pageList");
+                // Thêm tên và liên kết vào mục mới
+                $("<strong></strong>").text(item.pageName).appendTo(pageItem);
+                $("<br>").appendTo(pageItem);
+                $("<a></a>").attr({ "href": item.pageLink, "target": "_blank", "style": "font-size: 0.6rem" }).text(item.pageLink).appendTo(pageItem);
+            }
+            
+            // Kiểm tra nếu appName và appLink đều tồn tại và không rỗng
+            if (item.appName && item.appLink && item.appName.trim() !== "" && item.appLink.trim() !== "") {
+                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
+                var appItem = $("<li></li>").appendTo("#appList");
+                // Thêm tên và liên kết vào mục mới
+                $("<a></a>").attr({ "href": item.appLink, "target": "_blank" }).text(item.appName).appendTo(appItem);
+            }
+            
+            // Kiểm tra nếu txt tồn tại và không rỗng
+            if (item.txt && item.txt.trim() !== "") {
+                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
+                var notiItem = $("<li></li>").appendTo("#notiList");
+                // Thêm nội dung thông báo vào mục mới
+                $("<p></p>").text(item.txt).appendTo(notiItem);
+            }
         });
-    }
-});
-
-// Hàm xử lý dữ liệu
-function processData(data) {
-    // Lặp qua mỗi mục trong mảng JSON
-    $.each(data, function(index, item) {
-        // Kiểm tra và hiển thị dữ liệu (không lưu cache cho item.txt)
-        if (item.pageName && item.pageLink && item.pageName.trim() !== "" && item.pageLink.trim() !== "") {
-            var pageItem = $("<li></li>").appendTo("#pageList");
-            $("<strong></strong>").text(item.pageName).appendTo(pageItem);
-            $("<br>").appendTo(pageItem);
-            $("<a></a>").attr({ "href": item.pageLink, "target": "_blank", "style": "font-size: 0.6rem" }).text(item.pageLink).appendTo(pageItem);
-        }
-        if (item.appName && item.appLink && item.appName.trim() !== "" && item.appLink.trim() !== "") {
-            var appItem = $("<li></li>").appendTo("#appList");
-            $("<a></a>").attr({ "href": item.appLink, "target": "_blank" }).text(item.appName).appendTo(appItem);
-        }
-        if (item.txt && item.txt.trim() !== "") {
-            // Không lưu cache cho item.txt
-            var notiItem = $("<li></li>").appendTo("#notiList");
-            $("<p></p>").text(item.txt).appendTo(notiItem);
-        }
     });
-}
-
+});
 
 </script> 
  
