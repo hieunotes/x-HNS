@@ -2,7 +2,6 @@
 
 
 
-
 <!DOCTYPE html>
   <html lang="vi">
   <head>
@@ -36,157 +35,221 @@
 
 
 <!--- Font --->
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="//fonts.googleapis.com"/>
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin/>
+<link href="//fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet"/>
 <!--- END --->
 
-<!--- import Lib css --->    
-<link rel="stylesheet" href="https://cf.jare.io/?u=https://hieunotes.tayninhkysu.com/fw/lib.css"/> 
+<!--- import Lib css--->    
+<link rel="stylesheet" href="//cf.jare.io/?u=https://hieunotes.tayninhkysu.com/fw/bootstrap.min.css"/>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!--- End --->    
 
 <!--- CSS tùy chỉnh --->    
 <style>
 *{
-    font-family: 'Comfortaa',sans-serif !important;
+    font-family: 'Comfortaa',sans-serif ;
 }
-
-.container{
-  padding: 1rem;
-  padding-top: 5em;
+.nav-link{
+  color: #000
 }
-.info strong{
-  color:hsl(348, 100%, 61%) !important
-}
-  footer{
-    margin-top: 10em;
-      padding: 20px; /* You can adjust padding as needed */
-      box-sizing: border-box;
-      height: 100%;
-  }
 </style> 
 <!--- END ---> 
   </head>
-  <body id="head">
+  <body class="bg-white">
+
+    
+<!--- LOGO --->
+<header class="text-center pt-2">
+
+ <img src="//cf.jare.io/?u=https://hieunotes.tayninhkysu.com/img/avatar_nobg.svg" style="width: 80px" alt="hieunotes" class="col-md-4 img-fluid border rounded-circle shadow shadow-sm">
+<br>
+ <b class="fs-3">Hieunotes</b>
+ 
+ <p class="text-secondary">Quản lý bởi <b>Đặng Trung Hiếu</b></p>
+
+</header>
 
  
-   
-  <div class="container">
-<!---Ảnh đại diện ---> 
- <div class="hide has-text-centered">
-        <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="https://cf.jare.io/?u=https://hieunotes.tayninhkysu.com/img/avatar_nobg.svg"/>
-        </figure>
-        <br> <b class="title is-3">Harry Đặng</b>
-<div class="info">     
-       <p class="mt-4" style="font-size:0.8em;" >    
-       <strong>Được vận hành bởi <a href="https://www.facebook.com/harrydang.03"  target="_blank">Đặng Trung Hiếu</a></strong>.
-  </p>
+<ul class="nav d-flex justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="//bit.ly/harrydangfacebook"><i class="bi bi-facebook"></i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="//m.me/harrydang.03"><i class="bi bi-messenger"></i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="//bit.ly/harrydangx"><i class="bi bi-twitter"></i></a>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link" href="//bit.ly/harrydanginstagram"><i class="bi bi-instagram"></i></a>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:hieunotes@outlook.com"><i class="bi bi-envelope-fill"></i></a>
+  </li>
+</ul>
+<br>
+<main class="p-2">
+    <section class="d-flex justify-content-center">
+<div class="card col-md-8">
+  <img src="//bing.biturl.top/?&format=image" class="card-img-top" id="image" alt="Bing Pictures Today">
+  <div class="card-body">
+     <p class="card-text" id="content"></p>
   </div>
-    </div>
-<!--- END --->   
-
-
-<br/><br/>
-<!-- TRANG QUẢN LÝ -->
-<div class="content">
-   <h1 class="title is-5">
-      <strong>Page</strong>
-    </h1>
-  <ol id="pageList" type="1">
-    </ol>
-</div>  
-  
-  <!-- CÔNG CỤ -->
-<div class="content">
-    <h1 class="title is-5">
-      <strong>Tools</strong>
-    </h1>
- <ol id="appList" type="1">
- </ol>
- </div> 
-  
- <br> 
-<!-- THÔNG BÁO -->  
-  <div class="content">
-    <h1 class="title is-5">
-      <strong>Notification</strong>
-    </h1>
- <ol id="notiList" type="1">
-
- </ol>
- </div> 
-  
-  
-  
-  
 </div>
+  </section>
+  
+  <!--
+<br><br>
+<style>
+#title-tool{
+   animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+  text-shadow: 1px 2px #F0F0F0;
+}
+
+@keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-moz-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-webkit-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+ </style>
+<section class="p-2 col-md-8 mx-auto">
+  <h3 class="fw-bold" id="title-tool">Tiện ích tải video miễn phí từ TikTok, Douyin, Reels Facebook, Reels Instagram, Shorts, Twitter</h3>
+  <br>
+  <div class="input-group mb-3">
+  <input type="link" class="form-control" placeholder="Dán một liên kết video">
+</div>
+<button class="btn btn-primary w-100" type="button" id="button-addon2"><i class="bi bi-arrow-down"></i> Tải xuống</button>
+
+<br><br>
+<div class="">
+<h1>SẮP RA MẮT. Coming soon...</h1>
+</div>
+--->  
+  
+  
+  
+</section>
+
+
+
+
+
+  </main>
  
- 
- 
- 
- 
- <footer>
-   <div class="content has-text-centered">
+ <br><br>
+<hr> 
+ <footer class="text-center">
      <p>
        &copy 2024 <strong>Harry Dang</strong>
      </p>
-<br>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" zoomAndPan="magnify" viewBox="0 0 30 30.000001" height="40" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="id1"><path d="M 2.449219 5.457031 L 26.402344 5.457031 L 26.402344 22.878906 L 2.449219 22.878906 Z M 2.449219 5.457031 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#id1)"><path fill="rgb(85.488892%, 14.509583%, 11.369324%)" d="M 23.734375 5.457031 L 5.121094 5.457031 C 3.652344 5.457031 2.460938 6.65625 2.460938 8.136719 L 2.460938 20.195312 C 2.460938 21.675781 3.652344 22.878906 5.121094 22.878906 L 23.734375 22.878906 C 25.203125 22.878906 26.390625 21.675781 26.390625 20.195312 L 26.390625 8.136719 C 26.390625 6.65625 25.203125 5.457031 23.734375 5.457031 Z M 23.734375 5.457031 " fill-opacity="1" fill-rule="nonzero"/></g><path fill="rgb(100%, 100%, 0%)" d="M 15.589844 12.851562 L 14.425781 9.238281 L 13.261719 12.851562 L 9.492188 12.851562 L 12.542969 15.085938 L 11.375 18.699219 L 14.425781 16.464844 L 17.476562 18.699219 L 16.3125 15.085938 L 19.363281 12.851562 Z 5.589844 12.851562 " fill-opacity="1" fill-rule="nonzero"/></svg> 
 
+ <!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,4857872,4,0,0,0,00010000']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4857872&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
 
-
-<br>
-
-
-<strong>Việt Nam</strong>
+  </footer>
  
-  </div>
- </footer>
- 
- <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "73ac20764ac94212bf199152d29d88c6"}'></script><!-- End Cloudflare Web Analytics -->
- <!-- Script -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-
+ <script src="//cf.jare.io/?u=https://hieunotes.tayninhkysu.com/fw/jq.js"></script> 
 <script>
-$(document).ready(function() {
-    var api_url = "https://opensheet.elk.sh/1u-2O6yMLwxTBHGtqCCQJdyhjCJCUnbsdFJHZ8kGRdHc/web!A1:Z100";
-
-    // Sử dụng jQuery để gửi yêu cầu GET đến API JSON
-    $.get(api_url, function(data) {
-        // Lặp qua mỗi mục trong mảng JSON
-        $.each(data, function(index, item) {
-            // Kiểm tra nếu pageName và pageLink đều tồn tại và không rỗng
-            if (item.pageName && item.pageLink && item.pageName.trim() !== "" && item.pageLink.trim() !== "") {
-                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
-                var pageItem = $("<li></li>").appendTo("#pageList");
-                // Thêm tên và liên kết vào mục mới
-                $("<strong></strong>").text(item.pageName).appendTo(pageItem);
-                $("<br>").appendTo(pageItem);
-                $("<a></a>").attr({ "href": item.pageLink, "target": "_blank", "style": "font-size: 0.6rem" }).text(item.pageLink).appendTo(pageItem);
-            }
-            
-            // Kiểm tra nếu appName và appLink đều tồn tại và không rỗng
-            if (item.appName && item.appLink && item.appName.trim() !== "" && item.appLink.trim() !== "") {
-                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
-                var appItem = $("<li></li>").appendTo("#appList");
-                // Thêm tên và liên kết vào mục mới
-                $("<a></a>").attr({ "href": item.appLink, "target": "_blank" }).text(item.appName).appendTo(appItem);
-            }
-            
-            // Kiểm tra nếu txt tồn tại và không rỗng
-            if (item.txt && item.txt.trim() !== "") {
-                // Tạo một mục mới trong danh sách UL cho mỗi mục JSON
-                var notiItem = $("<li></li>").appendTo("#notiList");
-                // Thêm nội dung thông báo vào mục mới
-                $("<p></p>").text(item.txt).appendTo(notiItem);
-            }
-        });
-    });
+$.getJSON('https://bing.biturl.top/', function(data) {
+       var start_date = data.start_date;
+    var end_date = data.end_date;
+    var url = data.url;
+    var copyright = data.copyright;
+    var copyright_link = data.copyright_link;
+   
+   
+    $('#image').attr('src', "https://cf.jare.io/?u=" +url);
+    $('#content').text(copyright);
+   
+ 
 });
 
-</script> 
- 
+</script>
 
   </body>
   </html>
