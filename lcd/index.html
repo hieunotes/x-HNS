@@ -94,8 +94,6 @@ html, body {
   
  
  <p class="p-2">
-  Khu vực: <strong id="kv"></strong>
-    <br> 
    Từ ngày: <strong id="fromDate"></strong>   <br>
     Đến ngày: <strong id="endDate"></strong>  
  </p>
@@ -134,7 +132,7 @@ html, body {
     
 </footer>
 
-<script src="../fw/jq.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
   
@@ -148,34 +146,33 @@ html, body {
     }, 1000);
     });
   
-  function loadData() {
-     var selectedValue = $('#select').val();
-     var url = 'https://lichcupdien.hns.workers.dev?mdv=' + selectedValue;
-  
-     $.ajax({
-      url: url,
-      method: 'GET',
-      dataType: 'json',
-      success: function(data) {
-        $("#kv").text(data['items'][0]['Điện lực'])
-        $("#today").text(data['currentDate'])
-        $("#nextTwoDays").text(data['endDate'])
-        $('#tbody, #result_card').empty();
-  
-        $.each(data.items, function(index, item) {
- $("#captureButton").text("(⁠✿⁠^⁠‿⁠^⁠)"); 
+    function loadData() {
+    var selectedValue = $('#select').val();
+    var url = '//lichcupdien.hns.workers.dev?mdv=' + selectedValue;
 
-   ///   $('#result_card').append('<ul class="">Ngày: <strong class="">' + item["Ngày"] + '</strong></li><li>Khu vực: <strong>' + item["Khu vực"] + '</strong></li><li>Thời gian: <strong>' + item["Thời gian từ"] + ' - ' + item["Thời gian đến"] + '</strong></li><li>Lý do: <strong class="">' + item["Lý do"] + '</strong></li></ul>');
-          
-         $('#tbody').append('<tr><td class="text-danger">' + item["Ngày"] +'</td><td>' + item["Thời gian từ"] + '<br>' + item["Thời gian đến"] + '</td><td>' + item["Khu vực"] + '</td><td class="text-success">' + item["Lý do"] + '</td></tr>');
-     
-        });
-      },
-      error: function() {
-        $("#kv").text('Không thể tải dữ liệu.');
-      }
+    $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+        },
+        success: function(data) {
+          //  $("#kv").text(selectedValue); // Hiển thị tên điện lực
+            $("#fromDate").text(data[0]['today']); // Hiển thị ngày hôm nay
+            $("#endDate").text(data[0]['nextTwoDays']); // Hiển thị ngày trong hai ngày tiếp theo
+            $('#tbody, #result_card').empty(); // Xóa dữ liệu cũ trước khi hiển thị mới
+            $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)>⁠");
+            $.each(data.slice(1), function(index, item) {
+                $('#tbody').append('<tr><td class="text-danger">' + item["Ngày"] +'</td><td>' + item["Thời gian từ"] + '<br>' + item["Thời gian đến"] + '</td><td>' + item["Khu vực"] + '</td><td class="text-success">' + item["Lý do"] + '</td></tr>');
+            });
+        },
+        error: function() {
+            $("#kv").text('Không thể tải dữ liệu.');
+        }
     });
-  }
+}
+
   });
   
   </script>
