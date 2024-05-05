@@ -73,15 +73,15 @@ html, body {
     
     <div class="d-flex justify-content-center">
      <select class="form-select form-select-lg" style="width: 15rem" id="select">
-       <option value='PB0501' selected>TP. Tây Ninh</option>
-       <option value='PB0502'>Gò Dầu</option>
-       <option value='PB0503'>Trảng Bàng</option>
-       <option value='PB0504'>Tân Châu</option>
-       <option value='PB0505'>Châu Thành</option>
-       <option value='PB0506'>Dương Minh Châu</option>
-       <option value='PB0507'>Tân Biên</option>
-       <option value='PB0508'>Hòa Thành</option>
-       <option value='PB0509'>Bến Cầu</option>
+       <option value='01' selected>TP. Tây Ninh</option>
+       <option value='02'>Gò Dầu</option>
+       <option value='03'>Trảng Bàng</option>
+       <option value='04'>Tân Châu</option>
+       <option value='05'>Châu Thành</option>
+       <option value='06'>Dương Minh Châu</option>
+       <option value='07'>Tân Biên</option>
+       <option value='08'>Hòa Thành</option>
+       <option value='09'>Bến Cầu</option>
      </select>
  </div>
 </section>
@@ -164,7 +164,7 @@ html, body {
   
   function loadData() {
      var selectedValue = $('#select').val();
-     var url = '../json/lcd.php?mdv=' + selectedValue;
+     var url = '//lichcupdien.hns.workers.dev/?mdv=' + selectedValue;
   
      $.ajax({
       url: url,
@@ -172,8 +172,8 @@ html, body {
       dataType: 'json',
       success: function(data) {
         $("#kv").text(data['items'][0]['Điện lực'])
-        $("#fromDate").text(data['currentDate'])
-        $("#endDate").text(data['endDate'])
+        $("#today").text(data['currentDate'])
+        $("#nextTwoDays").text(data['endDate'])
         $('#tbody, #result_card').empty();
   
         $.each(data.items, function(index, item) {
