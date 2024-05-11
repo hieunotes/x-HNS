@@ -46,8 +46,36 @@
 html, body {
     height:100%;
 } 
+    .search-result {
+        margin: 20px;
+    }
 
+    .result-tbl {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        color:#121212;
+        padding: 10px;
+        border: 1px solid #121212;
+    }
+
+    th {
+        color:#fff;
+        font-size: 0.8rem;
+        background-color: #0a1bb3;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 </style>
+
 </head>
 <body class="bg-light">
 
@@ -91,30 +119,17 @@ html, body {
   <!-- DIV của tạo ảnh-->
 
 <section class="col-md-8 mx-auto pt-3">
-  
- 
- <p class="p-2">
-   Từ ngày: <strong id="fromDate"></strong>   <br>
-    Đến ngày: <strong id="endDate"></strong>  
- </p>
   <div class="d-flex justify-content-center">
   <button class="btn btn-light btn-sm" id="captureButton">
   (⁠・⁠o⁠・⁠) ĐANG TẢI DỮ LIỆU...
      </button>
   </div>
  
-   <table style="font-size: 80%" class="table table-bordered table-striped table-hover mt-1">
-    <thead class="table-primary text-center">
-      <tr>
-        <th>Ngày</th>
-        <th>Thời gian</th>
- <th>Khu vực</th>
- <th>Lý do</th>
-       </tr>
-    </thead>
-    <tbody id="tbody">
-    </tbody>
-  </table>
+<b>Hòa thành</b>
+   
+<div id="ketqua"></div>
+
+
   <p class="pt-2 text-center text-danger">Gọi ngay tổng đài hỗ trợ điện lực tại số<br><b>1900 1006</b> hoặc <b>1900 9000</b></p>
 </section>
 
@@ -151,28 +166,21 @@ html, body {
     $.ajax({
         url: url,
         method: 'GET',
-        dataType: 'json',
+        dataType: 'html',
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
         },
         success: function(data) {
-          //  $("#kv").text(selectedValue); // Hiển thị tên điện lực
-            $("#fromDate").text(data[0]['today']); // Hiển thị ngày hôm nay
-            $("#endDate").text(data[0]['nextTwoDays']); // Hiển thị ngày trong hai ngày tiếp theo
-            $('#tbody, #result_card').empty(); // Xóa dữ liệu cũ trước khi hiển thị mới
-            $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)>⁠");
-            $.each(data.slice(1), function(index, item) {
-                $('#tbody').append('<tr><td class="text-danger">' + item["Ngày"] +'</td><td>' + item["Thời gian từ"] + '<br>' + item["Thời gian đến"] + '</td><td>' + item["Khu vực"] + '</td><td class="text-success">' + item["Lý do"] + '</td></tr>');
-            });
+          $("#captureButton").text('<⁠(⁠￣⁠︶⁠￣⁠)⁠>');
+                $('#ketqua').html(data); 
         },
         error: function() {
             $("#kv").text('Không thể tải dữ liệu.');
         }
-    });
+});
 }
 
-  });
-  
+  })
   </script>
   
   
