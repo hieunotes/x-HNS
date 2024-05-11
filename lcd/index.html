@@ -1,4 +1,13 @@
-<!--30/03/2024-->
+<!--11/05/2024
+
+SỬA CODE HIỂN THỊ LÀ HTML THAY VÌ JSON 
+
+
+
+TĂNG TỐC ĐỘ TẢI TRANG WEB 
+
+
+-->
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -125,7 +134,7 @@ html, body {
      </button>
   </div>
  
-<b>Hòa thành</b>
+<div class="p-3">Điện lực: <b id="khuvuc"></b></div>
    
 <div id="ketqua"></div>
 
@@ -160,9 +169,11 @@ html, body {
     });
   
     function loadData() {
-    var selectedValue = $('#select').val();
-    var url = '//lichcupdien.hns.workers.dev?mdv=' + selectedValue;
+    const selectedText = $('#select  option:selected').text();
+    const selectedValue = $('#select').val();
+    const url = '//lichcupdien.hns.workers.dev?mdv=' + selectedValue;
 
+ $('#khuvuc').text(selectedText)
     $.ajax({
         url: url,
         method: 'GET',
@@ -186,23 +197,19 @@ html, body {
   
 <script async="async" defer="defer" src="../fw/html2canvas.min.js"></script>
 <script>
-   document.getElementById('captureButton').addEventListener('click', function() {
+  document.getElementById('captureButton').addEventListener('click', function() {
    
-      html2canvas(document.getElementById('elementToCapture'), {
-   scale:2}).then(function(canvas) {
-        var randomNumber = Math.floor(Math.random() * 100000);
-        var randomFileName = 'captured_image_' + randomNumber + '.png';
-        var link = document.createElement('a');
-        link.href = canvas.toDataURL();
-        link.download = randomFileName;
-        link.click();
-      });
-    });
+   html2canvas(document.getElementById('elementToCapture'), {
+scale:2}).then(function(canvas) {
+     var randomNumber = Math.floor(Math.random() * 100000);
+     var randomFileName = 'captured_image_' + randomNumber + '.png';
+     var link = document.createElement('a');
+     link.href = canvas.toDataURL();
+     link.download = randomFileName;
+     link.click();
+   });
+ });
 </script>
-
-
-
-
   </body>
 
 </html>
