@@ -280,11 +280,14 @@ $('#tracuu_maKH').click(function() {
 <script async="async" defer="defer" src="../fw/html2canvas.min.js"></script>
 <script>
   document.getElementById('captureButton').addEventListener('click', function() {
-   
+
+
+  var name = $('#select').val(); 
+    
    html2canvas(document.getElementById('elementToCapture'), {
 scale:2}).then(function(canvas) {
      var randomNumber = Math.floor(Math.random() * 100000);
-     var randomFileName = 'captured_image_' + randomNumber + '.png';
+     var randomFileName = name + '.png';
      var link = document.createElement('a');
      link.href = canvas.toDataURL();
      link.download = randomFileName;
