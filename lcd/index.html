@@ -1,233 +1,300 @@
+<!--11/05/2024
+
+SỬA CODE HIỂN THỊ LÀ HTML THAY VÌ JSON 
+TĂNG TỐC ĐỘ TẢI TRANG WEB 
+
+OPEN SOURCE
+
+-->
+
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hieunotes | Lịch Cúp Điện</title>
-    <meta name="description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="//hieunotes.pages.dev/lcd/" />
-    <meta property="og:title" content="Hieunotes | Lịch Cúp Điện" />
-    <meta property="og:description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
-    <meta property="og:image" content="//s6.imgcdn.dev/W5WJC.png" />
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="//hieunotes.pages.dev/lcd/" />
-    <meta property="twitter:title" content="Hieunotes | Lịch Cúp Điện" />
-    <meta property="twitter:description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
-    <meta property="twitter:image" content="//s6.imgcdn.dev/W5WJC.png" />
-    <!-- Font -->
-    <link rel="preconnect" href="//fonts.googleapis.com">
-    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-    <link href="//fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../fw/bootstrap.min.css">
-    <style>
-        * {
-            font-family: "Be Vietnam Pro", sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+<title>Hieunotes | Lịch Cúp Điện</title>
+<meta name="title" content="Hieunotes | Lịch Cúp Điện" />
+<meta name="description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
 
-        html,
-        body {
-            height: 100%;
-        }
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="//hieunotes.pages.dev/lcd/" />
+<meta property="og:title" content="Hieunotes | Lịch Cúp Điện" />
+<meta property="og:description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
+<meta property="og:image" content="//s6.imgcdn.dev/W5WJC.png" />
 
-        .search-result {
-            margin: 20px;
-        }
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="//hieunotes.pages.dev/lcd/" />
+<meta property="twitter:title" content="Hieunotes | Lịch Cúp Điện" />
+<meta property="twitter:description" content="Cập nhật lịch tạm ngừng cung cấp điện Điện lực Tây Ninh mới nhất." />
+<meta property="twitter:image" content="//s6.imgcdn.dev/W5WJC.png" />
 
-        .result-tbl {
-            overflow-x: auto;
-        }
+<!-- Meta Tags Generated with //metatags.io --> 
+   
+ 
+  
+  <!--- Font --->
+<link rel="preconnect" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+<link href="//fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+<!--- END --->
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+  <link rel="stylesheet" href="../fw/bootstrap.min.css">
+ 
+   <style>
+ 
+    *{
+        font-family: "Be Vietnam Pro", sans-serif;
+}
+html, body {
+    height:100%;
+} 
+    .search-result {
+        margin: 20px;
+    }
 
-        th,
-        td {
-            color: #121212;
-            padding: 10px;
-            border: 1px solid #121212;
-        }
+    .result-tbl {
+        overflow-x: auto;
+    }
 
-        th {
-            color: #fff;
-            font-size: 0.8rem;
-            background-color: #0a1bb3;
-        }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        tbody tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
+    th, td {
+        color:#121212;
+        padding: 10px;
+        border: 1px solid #121212;
+    }
 
-        .form-control:focus {
-            border-color: #28a745;
-            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-        }
+    th {
+        color:#fff;
+        font-size: 0.8rem;
+        background-color: #0a1bb3;
+    }
 
+    tbody tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    } 
+
+    .notification {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    .notification .ttl {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .notification .red {
+        color: #721c24;
+    }
+
+    .notification .time {
+        font-size: 0.9em;
+    }
+
+    @media (prefers-color-scheme: dark) {
         .notification {
-            background-color: #f8d7da;
-            color: #721c24;
-            padding: 10px;
-            border: 1px solid #f5c6cb;
-            border-radius: 5px;
-            margin: 10px;
-        }
-
-        .notification .ttl {
-            font-weight: bold;
-            margin-bottom: 5px;
+            background-color: #553355;
+            color: #ffffff;
+            border-color: #331133;
         }
 
         .notification .red {
-            color: #721c24;
+            color: #ffcccc;
         }
+    }
+</style>
 
-        .notification .time {
-            font-size: 0.9em;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .notification {
-                background-color: #553355;
-                color: #ffffff;
-                border-color: #331133;
-            }
-
-            .notification .red {
-                color: #ffcccc;
-            }
-        }
-    </style>
 </head>
-
 <body class="bg-light">
-    <header class="text-center pt-2">
-        <img src="../img/avatar_nobg.png" style="width: 80px" alt="hieunotes" class="col-md-4 img-fluid border rounded-circle shadow shadow-sm">
-        <br>
-        <b class="fs-3">Hieunotes</b>
-        <p class="text-secondary">Lịch Cúp Điện Tây Ninh</p>
-    </header>
 
-    <main role="main">
-        <section class="text-center">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z" fill="currentColor" />
-            </svg>
-            <p>Vui lòng chọn khu vực:</p>
-            <div class="d-flex justify-content-center">
-                <select class="form-select form-select-lg" style="width: 15rem" id="select">
-                    <option value='01' selected>TP. Tây Ninh</option>
-                    <option value='02'>Gò Dầu</option>
-                    <option value='03'>Trảng Bàng</option>
-                    <option value='04'>Tân Châu</option>
-                    <option value='05'>Châu Thành</option>
-                    <option value='06'>Dương Minh Châu</option>
-                    <option value='07'>Tân Biên</option>
-                    <option value='08'>Hòa Thành</option>
-                    <option value='09'>Bến Cầu</option>
-                </select>
-            </div>
-        </section>
+<!--- LOGO --->
+<header class="text-center pt-2">
 
-        <!-- DIV của tạo ảnh-->
-        <div id="elementToCapture">
-            <!-- DIV của tạo ảnh-->
+ <img src="../img/avatar_nobg.png" style="width: 80px" alt="hieunotes" class="col-md-4 img-fluid border rounded-circle shadow shadow-sm">
+<br>
+ <b class="fs-3">Hieunotes</b>
+ 
+ <p class="text-secondary">Lịch Cúp Điện Tây Ninh</p>
 
-            <!-- KHU VỰC TABLE LỊCH CÚP ĐIỆN -->
-            <section class="col-md-8 mx-auto pt-3">
-                <p class="p-2">
-                    Từ ngày: <strong id="fromDate"></strong> <br> Đến ngày: <strong id="endDate"></strong>
-                </p>
-                <div class="d-flex justify-content-center">
-                    <button class="btn btn-light btn-sm" id="captureButton">(⁠・⁠o⁠・⁠) ĐANG TẢI DỮ LIỆU...</button>
-                </div>
+</header>
 
-                <div class="p-3">Điện lực: <b id="khuvuc"></b></div>
 
-                <div id="ketqua"></div>
+<main role="main">
+  
+<section class="text-center">
 
-                <p class="pt-2 text-center text-danger">Gọi ngay tổng đài hỗ trợ điện lực tại số<br><b>1900 1006</b> hoặc <b>1900 9000</b></p>
-            </section>
-            <!-- DIV của tạo ảnh-->
-        </div>
-        <!-- DIV của tạo ảnh -->
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 6H13V10.079L16.3413 7.73938L17.4885 9.37768L13.7434 12L17.4885 14.6223L16.3413 16.2606L13 13.921V18H11V13.921L7.65864 16.2606L6.51148 14.6223L10.2565 12L6.51147 9.37769L7.65863 7.73938L11 10.079V6Z" fill="currentColor" /></svg>
+  
+    <p>Vui lòng chọn khu vực:</p>
+    
+    <div class="d-flex justify-content-center">
+     <select class="form-select form-select-lg" style="width: 15rem" id="select">
+       <option value='01' selected>TP. Tây Ninh</option>
+       <option value='02'>Gò Dầu</option>
+       <option value='03'>Trảng Bàng</option>
+       <option value='04'>Tân Châu</option>
+       <option value='05'>Châu Thành</option>
+       <option value='06'>Dương Minh Châu</option>
+       <option value='07'>Tân Biên</option>
+       <option value='08'>Hòa Thành</option>
+       <option value='09'>Bến Cầu</option>
+     </select>
+ </div>
+</section>
 
-        <section class="p-3 col-12 col-md-6 mx-auto">
-            <h3 class="fw-bold">Tra cứu theo mã khách hàng</h3>
+<!-- DIV của tạo ảnh-->
+  <div  id="elementToCapture">
+  <!-- DIV của tạo ảnh-->
+ 
 
-            <div class="input-group mb-3">
-                <input type="text" class="form-control text-success" id="maKH" placeholder="Nhập mã khách hàng...">
-                <span class="input-group-text btn btn-success" id="tracuu_maKH">TRA CỨU</span>
-            </div>
+<!-- KHU VỰC TABLE LỊCH CÚP ĐIỆN -->
+<section class="col-md-8 mx-auto pt-3">
+  <div class="d-flex justify-content-center">
+  <button class="btn btn-light btn-sm" id="captureButton">
+  (⁠・⁠o⁠・⁠) ĐANG TẢI DỮ LIỆU...
+     </button>
+  </div>
+ 
+<div class="p-3">Điện lực: <b id="khuvuc"></b></div>
+   
+<div id="ketqua"></div>
 
-            <div id="ketqua_maKH"></div>
 
-        </section>
-    </main>
-    <hr>
-    <footer class="text-center">
-        <p>2024 by <strong>Harry Dang</strong></p>
-    </footer>
+  <p class="pt-2 text-center text-danger">Gọi ngay tổng đài hỗ trợ điện lực tại số<br><b>1900 1006</b> hoặc <b>1900 9000</b></p>
+</section>
+<!-- DIV của tạo ảnh-->
+    </div>
+<!-- DIV của tạo ảnh -->
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script async="async" defer="defer" src="../fw/html2canvas.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#select').val('01');
-            loadData();
-            $('#select').change(function() {
-                $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)⁠↗ Chờ xíu...");
-                setTimeout(function() {
-                    loadData();
-                }, 1000);
-            });
+<section class="p-3 col-12 col-md-6 mx-auto">
+  <h3 class="fw-bold">Tra cứu theo mã khách hàng</h3>
+ 
+  <div class="input-group mb-3">
+    <input type="text" class="form-control text-success" id="maKH" placeholder="Nhập mã khách hàng...">
+    <span class="input-group-text btn btn-success" id="tracuu_maKH">TRA CỨU</span>
+  </div>
 
-            function loadData() {
-                var selectedText = $('#select option:selected').text();
-                var selectedValue = $('#select').val();
-                var url = '//lichcupdien.hns.workers.dev?mdv=' + selectedValue;
+  <div id="ketqua_maKH"></div>
 
-                $.ajax({
-                    url: url,
-                    method: 'GET',
-                    dataType: 'json',
-                    headers: {
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
-                    },
-                    success: function(data) {
-                        $("#fromDate").text(data[0]['today']);
-                        $("#endDate").text(data[0]['nextTwoDays']);
-                        $('#ketqua').empty();
-                        $("#captureButton").text("(⁠・⁠o⁠・⁠) DỮ LIỆU ĐÃ TẢI XONG!");
-                        $.each(data.slice(1), function(index, item) {
-                            $('#ketqua').append('<p><span class="text-danger">' + item["Ngày"] + '</span> - <span class="text-success">' + item["Lý do"] + '</span></p>');
-                        });
-                    },
-                    error: function() {
-                        $("#ketqua").text('Không thể tải dữ liệu.');
-                    }
-                });
-            }
-        });
 
-        document.getElementById('captureButton').addEventListener('click', function() {
-            html2canvas(document.getElementById('elementToCapture'), {
-                scale: 2
-            }).then(function(canvas) {
-                var name = $('#select').val();
-                var randomFileName = name + '.png';
-                var link = document.createElement('a');
-                link.href = canvas.toDataURL();
-                link.download = randomFileName;
-                link.click();
-            });
-        });
-    </script>
-</body>
+</section>
+  </main>
+<hr>
+  <footer class="text-center">
+    <p>
+2024 by <strong>Harry Dang</strong></p>
+    
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+  
+  $(document).ready(function() {
+     $('#select').val('01'); 
+    loadData();
+     $('#select').change(function() {
+       $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)⁠↗ Chờ xíu...");
+   setTimeout(function(){
+    loadData();
+    }, 1000);
+    });
+  
+    function loadData() {
+    const selectedText = $('#select  option:selected').text();
+    const selectedValue = $('#select').val();
+    const url = '//lichcupdien.hns.workers.dev?mdv=' + selectedValue;
+
+ $('#khuvuc').text(selectedText)
+    $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'html',
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+        },
+        success: function(data) {
+          $("#captureButton").text('TÂY NINH KÝ SỰ (tayninhkysu.com)');
+                $('#ketqua').html(data); 
+        },
+        error: function() {
+            $("#kv").text('Không thể tải dữ liệu.');
+        }
+});
+}
+
+
+// Sử dụng sự kiện change để kiểm tra khi giá trị thay đổi
+// Gán sự kiện click cho nút
+$('#tracuu_maKH').click(function() {
+    // Lấy giá trị của #maKH
+    const maKH = $('#maKH').val();
+    
+    // Kiểm tra nếu giá trị maKH rỗng
+    if (!maKH) {
+        $('#ketqua_maKH').text('Không có mã khách hàng. Điện lực miền nam bắt đầu bằng mã "PB"');
+        return; // Dừng việc thực hiện tiếp theo nếu giá trị rỗng
+    }
+    
+    // Tạo URL mới dựa trên giá trị mới của #maKH
+    const url = 'https://tracuulichcupdien.hns.workers.dev/?mkh=' + maKH;
+    
+    // Gọi AJAX khi người dùng nhấn vào nút
+    $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'html',
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0'
+        },
+        success: function(data) {
+            $('#ketqua_maKH').html(data);
+        },
+        error: function() {
+            $('#ketqua_maKH').text('ERROR');
+        }
+    });
+});
+
+  })
+  </script>
+  
+  
+<script async="async" defer="defer" src="../fw/html2canvas.min.js"></script>
+<script>
+  document.getElementById('captureButton').addEventListener('click', function() {
+
+
+  var name = $('#select').val(); 
+    
+   html2canvas(document.getElementById('elementToCapture'), {
+scale:2}).then(function(canvas) {
+     var randomNumber = Math.floor(Math.random() * 100000);
+     var randomFileName = name + '.png';
+     var link = document.createElement('a');
+     link.href = canvas.toDataURL();
+     link.download = randomFileName;
+     link.click();
+   });
+ });
+</script>
+  </body>
 
 </html>
