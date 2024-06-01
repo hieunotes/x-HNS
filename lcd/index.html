@@ -78,8 +78,8 @@ html, body {
     } 
 
     .notification {
-        background-color: #f8d7da;
-        color: #721c24;
+        background-color: #0a1bb3;
+        color: #fff;
         padding: 10px;
         border: 1px solid #f5c6cb;
         border-radius: 5px;
@@ -92,23 +92,11 @@ html, body {
     }
 
     .notification .red {
-        color: #721c24;
+        color: #fff;
     }
 
     .notification .time {
         font-size: 0.9em;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .notification {
-            background-color: #553355;
-            color: #ffffff;
-            border-color: #331133;
-        }
-
-        .notification .red {
-            color: #ffcccc;
-        }
     }
 </style>
 
@@ -158,8 +146,7 @@ html, body {
 <!-- KHU VỰC TABLE LỊCH CÚP ĐIỆN -->
 <section class="col-md-8 mx-auto pt-3">
   <div class="d-flex justify-content-center">
-  <button class="btn btn-light btn-sm" id="captureButton">
-  (⁠・⁠o⁠・⁠) ĐANG TẢI DỮ LIỆU...
+  <button class="btn btn-light btn-sm" id="captureButton">ĐANG TẢI DỮ LIỆU...
      </button>
   </div>
  
@@ -202,7 +189,7 @@ html, body {
      $('#select').val('01'); 
     loadData();
      $('#select').change(function() {
-       $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)⁠↗ Chờ xíu...");  
+       $("#captureButton").text("TÂY NINH KÝ SỰ (tayninhkysu.com)");  
        setTimeout(function(){
     loadData();
     }, 1000);
