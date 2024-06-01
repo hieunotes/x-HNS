@@ -1,4 +1,4 @@
-<!--11/05/2024
+<!--30/05/2024
 
 SỬA CODE HIỂN THỊ LÀ HTML THAY VÌ JSON 
 TĂNG TỐC ĐỘ TẢI TRANG WEB 
@@ -36,20 +36,11 @@ OPEN SOURCE
 <!-- Meta Tags Generated with //metatags.io --> 
    
  
-  
-  <!--- Font --->
-<link rel="preconnect" href="//fonts.googleapis.com">
-<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
-<link href="//fonts.googleapis.com/css2?family=Be+Vietnam+Pro&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
-<!--- END --->
 
   <link rel="stylesheet" href="../fw/bootstrap.min.css">
  
    <style>
  
-    *{
-        font-family: "Be Vietnam Pro", sans-serif;
-}
 html, body {
     height:100%;
 } 
@@ -211,8 +202,8 @@ html, body {
      $('#select').val('01'); 
     loadData();
      $('#select').change(function() {
-       $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)⁠↗ Chờ xíu...");
-   setTimeout(function(){
+       $("#captureButton").text("<⁠(⁠￣⁠︶⁠￣⁠)⁠↗ Chờ xíu...");  
+       setTimeout(function(){
     loadData();
     }, 1000);
     });
