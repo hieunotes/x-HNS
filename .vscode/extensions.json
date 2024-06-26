@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "ms-vscode.live-server"
+        "ms-vscode.live-server",
+        "formulahendry.auto-rename-tag",
+        "zhuangtongfa.material-theme"
     ]
 }
