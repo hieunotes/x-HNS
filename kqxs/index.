@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="vivi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Results</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro&display=swap" rel="stylesheet">
+   <style>
+    *{
+        font-family: "Be Vietnam Pro", serif;
+    font-weight: 700;
+    font-style: normal;
+      }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        #red{
+          color:red
+        }
+        .date-picker {
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kết quả xổ số miền Nam hàng ngày</h1>
+    <div class="date-picker">
+        <label for="date">Chọn ngàyngày: </label>
+        <input type="date" id="date" name="date">
+    </div>
+    <table id="lotteryTable">
+        <thead>
+            <tr>
+                <th>Giải</th>
+                <!-- Các cột tỉnh sẽ được thêm động ở đây -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dữ liệu sẽ được thêm động ở đây -->
+        </tbody>
+    </table>
+    <button class="download-btn" onclick="downloadTableAsImage()">Tải về ảnh</button>
+
+    <script>
+        $(document).ready(function() {
+            // Lấy ngày hôm nay và định dạng thành YYYY-MM-DD
+            const today = new Date().toISOString().split('T')[0];
+            // Đặt giá trị mặc định cho input date là ngày hôm nay
+            $('#date').val(today);
+
+            // Gọi API với ngày hôm nay khi trang được tải
+            fetchData(today);
+
+            // Lắng nghe sự kiện thay đổi ngày
+            $('#date').change(function() {
+                const selectedDate = $(this).val();
+                fetchData(selectedDate);
+            });
+
+            function fetchData(date) {
+                const apiUrl = `https://api.xosothantai.mobi/app/json-kq-miennam?ngay_quay=${date}`;
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        // Xóa dữ liệu cũ trong bảng
+                        $('#lotteryTable thead tr').empty();
+                        $('#lotteryTable tbody').empty();
+
+                        // Thêm cột "Giải" vào thead
+                        $('#lotteryTable thead tr').append('<th>Giải</th>');
+
+                        // Lấy danh sách các tỉnh từ dữ liệu API
+                        const provinces = data.map(item => item.provinceName);
+
+                        // Thêm các cột tỉnh vào thead
+                        provinces.forEach(province => {
+                            $('#lotteryTable thead tr').append(`<th>${province}</th>`);
+                        });
+
+                        // Tạo một đối tượng để lưu trữ dữ liệu theo giải
+                        const resultsByPrize = {
+                            'G8': [],
+                            'G7': [],
+                            'G6': [],
+                            'G5': [],
+                            'G4': [],
+                            'G3': [],
+                            'G2': [],
+                            'G1': [],
+                            'ĐB': []
+                        };
+
+                        // Lặp qua dữ liệu từ API để tổ chức lại theo giải
+                        data.forEach(item => {
+                            for (const [prize, numbers] of Object.entries(item.lotData)) {
+                                const prizeKey = prize === 'DB' ? 'ĐB' : `G${prize}`;
+                                if (prizeKey === 'ĐB') {
+                                    resultsByPrize[prizeKey].push(numbers.map(num => `<strong id="red">${num}</strong>`).join('<br>'));
+                                } else {
+                                    resultsByPrize[prizeKey].push(numbers.join('<br>'));
+                                }
+                            }
+                        });
+
+                        // Hiển thị dữ liệu đã tổ chức lại lên bảng
+                        for (const [prize, numbers] of Object.entries(resultsByPrize)) {
+                            const row = `<tr>
+                                <td>${prize}</td>
+                                ${numbers.map(num => `<td>${num}</td>`).join('')}
+                            </tr>`;
+                            $('#lotteryTable tbody').append(row);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching data:', textStatus, errorThrown);
+                    }
+                });
+            }
+        });
+
+        // Hàm chuyển bảng thành ảnh và tải về
+        function downloadTableAsImage() {
+            html2canvas(document.querySelector("#lotteryTable")).then(canvas => {
+                // Chuyển canvas thành hình ảnh
+                const image = canvas.toDataURL("image/png");
+
+                // Tạo một thẻ <a> để tải về
+                const link = document.createElement('a');
+                link.href = image;
+                link.download = 'lottery_results.png'; // Tên file tải về
+                link.click(); // Tự động click để tải về
+            });
+        }
+    </script>
+</body>
+</html>
