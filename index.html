@@ -1,468 +1,383 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     
+    <!-- Primary Meta Tags -->
+    <title>hieunotes</title>
+    <meta name="title" content="hieunotes" />
+    <meta name="description" content="Không có gì quý hơn độc lập, tự do." />
     
-     <!-- Primary Meta Tags -->
-     <title>hieunotes</title>
-     <meta name="title" content="hieunotes" />
-     <meta name="description" content="Không có gì quý hơn độc lập, tự do." />
-     
-     <!-- Open Graph / Facebook -->
-     <meta property="og:type" content="website" />
-     <meta property="og:url" content="/" />
-     <meta property="og:title" content="hieunotes" />
-     <meta property="og:description" content="Không có gì quý hơn độc lập, tự do." />
-     <meta property="og:image" content="banner.png" />
-     
-     <!-- Twitter -->
-     <meta property="twitter:card" content="summary_large_image" />
-     <meta property="twitter:url" content="/" />
-     <meta property="twitter:title" content="hieunotes" />
-     <meta property="twitter:description" content="Không có gì quý hơn độc lập, tự do." />
-     <meta property="twitter:image" content="banner.png" />
-     
-     <!--- Favicon --->
-     <link href='favicon.ico' rel='icon' type='image/x-icon'/>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="hieunotes" />
+    <meta property="og:description" content="Không có gì quý hơn độc lập, tự do." />
+    <meta property="og:image" content="banner.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="/" />
+    <meta property="twitter:title" content="hieunotes" />
+    <meta property="twitter:description" content="Không có gì quý hơn độc lập, tự do." />
+    <meta property="twitter:image" content="banner.png" />
+    
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="icon" type="image/x-icon"/>
 
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-     <link href="fw/bootstrap.min.css" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <!-- Custom Styles -->
     <style>
         :root {
-                    --bs-card-bg: #fff;
-                    --bs-card-border-color: #ddd;
-                    --bs-primary: #ff4444;
-                    --bs-secondary: #f8f9fa;
-                    --bs-secondary-foreground: #333;
-                    --bs-muted: #777;
-                    --bs-black:#343a40;
-                     }
-        .card-body-custom {
-            background-color: var(--bs-card-bg);
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .text-muted-custom {
-            color: var(--bs-muted);
-        }
-        .btn-secondary-custom {
-            background-color: var(--bs-secondary);
-            color: var(--bs-secondary-foreground);
-        }
-        .btn-secondary-custom:hover {
-            background-color: #e9ecef;
-        }
-        a:hover,
-        i:hover {
-            color:#0a1bb3 !important;
-        }
-        .nav-link,
-        .hns-black{
-        color: var(--bs-black)
-        }
-        .link li a{
-        color: var(--bs-black);
-        }
-  
-                .emoji {
-        display: none;
-        padding: 1rem;
+            --primary: #ff4444;
+            --secondary: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --bg-gradient: linear-gradient(135deg, #f9ecec 0%, #e8f0fe 100%);
         }
 
-        .emoji span {
-        font-size: 4rem;
-        padding: 0 .5rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        
-.title-tool{
-   animation: Color 4s linear infinite;
-  -webkit-animation: Color 4s ease-in-out infinite;
-  text-shadow: 1px 2px #F0F0F0;
-}
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-@keyframes Color{
-  0%{
-    color:#A0D468;
-  }
-  
-  20%{
-    color:#4FC1E9;
-  }
-  
-  40%{
-    color:#FFCE54;
-  }
-  
-  60%{
-    color:#FC6E51;
-  }
-  
-  80%{
-    color:#ED5565;
-  }
-  
-  100%{
-    color:#AC92EC;
-  }
-}
+        .container-custom {
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
 
-@-moz-keyframes Color{
-  0%{
-    color:#A0D468;
-  }
-  
-  20%{
-    color:#4FC1E9;
-  }
-  
-  40%{
-    color:#FFCE54;
-  }
-  
-  60%{
-    color:#FC6E51;
-  }
-  
-  80%{
-    color:#ED5565;
-  }
-  
-  100%{
-    color:#AC92EC;
-  }
-}
+        .card-custom {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
 
-@-webkit-keyframes Color{
-  0%{
-    color:#A0D468;
-  }
-  
-  20%{
-    color:#4FC1E9;
-  }
-  
-  40%{
-    color:#FFCE54;
-  }
-  
-  60%{
-    color:#FC6E51;
-  }
-  
-  80%{
-    color:#ED5565;
-  }
-  
-  100%{
-    color:#AC92EC;
-  }
-}
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header img {
+            width: 100px;
+            border: 3px solid #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .header .title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header .title:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        .nav-custom {
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-custom a {
+            color: var(--text-dark);
+            font-weight: 600;
+            text-decoration: none;
+            padding-bottom: 0.3rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-custom a:hover {
+            color: var(--primary);
+        }
+
+        .nav-custom a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-custom a:hover::after {
+            width: 100%;
+        }
+
+        /* Weather & Countdown */
+        .weather, .countdown {
+            text-align: center;
+        }
+
+        .weather h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .countdown h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown-grid {
+            gap: 1.5rem;
+        }
+
+        .countdown-item span:first-child {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .countdown-item span:last-child {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Post Section */
+        .post-input textarea {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            resize: none;
+        }
+
+        .post-input button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .post-input button:hover {
+            background: #e63939;
+        }
+
+        .post-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @media (max-width: 768px) {
+            .header img { width: 80px; }
+            .header .title { font-size: 1.5rem; }
+            .nav-custom { flex-direction: column; gap: 1rem; }
+            .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+        }
     </style>
-     
-
 </head>
-<body class="bg-light">
+<body>
+    <div class="container-custom">
+        <!-- Header -->
+        <div class="card-custom header">
+            <img src="img/avatar_nobg.png" alt="hieunotes" class="rounded-circle">
+            <a href="/" class="title">Đặng Trung Hiếu</a>
+            <div class="d-flex justify-content-center social-links mt-3">
+                <a href="//www.facebook.com/hieu.vntn" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="//m.me/hieu.vntn" target="_blank"><i class="bi bi-messenger"></i></a>
+                <a href="https://x.com/hieunotes" target="_blank"><i class="bi bi-twitter"></i></a>
+                <a href="//www.instagram.com/hieu.vntn" target="_blank"><i class="bi bi-instagram"></i></a>
+                <a href="mailto:hieunotes@outlook.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <hr style="width: 100px; margin: 1rem auto;">
+        </div>
 
-    <div class="container my-3">
-        <div class="card-body-custom p-4 mx-auto" style="max-width: 600px;">
-<!--- LOGO --->
-<header class="text-center">
- <img src="img/avatar_nobg.png" style="width: 80px" alt="hieunotes" class="col-md-4 img-fluid border rounded-circle shadow shadow-sm">
-<br>
- <a class="text-decoration-none fs-3 text-dark fw-bold" href="/">Đặng Trung Hiếu
- </a>
-<ul class="nav mt-2 d-flex justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link" target="_blank" href="//www.facebook.com/hieu.vntn"><i class="bi bi-facebook"></i></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" target="_blank" href="//m.me/hieu.vntn"><i class="bi bi-messenger"></i></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" target="_blank" href="https://x.com/hieunotes"><i class="bi bi-twitter"></i></a>
-  </li>
-    <li class="nav-item">
-      <a class="nav-link" target="_blank" href="//www.instagram.com/hieu.vntn"><i class="bi bi-instagram"></i></a>
-    </li>
-  <li class="nav-item">
-    <a class="nav-link" href="mailto:hieunotes@outlook.com"><i class="bi bi-envelope-fill"></i></a>
-  </li>
-</ul>
-<div class=" d-flex justify-content-center"><hr style="width: 10rem"></div>
-</header>
-<!-- END LOGO -->
-<ul class="nav nav-underline link p-2 fw-bold justify-content-center">
-    <li class="nav-item">
-      <a class="nav-link" target="_blank" href="//tayninh.vercel.app">Lịch cúp điện</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Không gian</a></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Rút gọn link</a>
-    </li>
-  </ul>
-      </div>
-      </div>
+        <!-- Navigation -->
+        <div class="card-custom">
+            <ul class="nav nav-custom d-flex">
+                <li><a href="//tayninh.vercel.app" target="_blank">Lịch cúp điện</a></li>
+                <li><a href="#">Không gian</a></li>
+                <li><a href="#">Rút gọn link</a></li>
+            </ul>
+        </div>
 
+        <!-- Weather -->
+        <div class="card-custom weather">
+            <h4><span id="location"></span> - <span id="currentDate"></span></h4>
+            <p>Nhiệt độ: <b id="temperature"></b>°C</p>
+            <p>Cảm giác như: <b id="feelsLike"></b>°C</p>
+            <p>Độ ẩm: <b id="humidity"></b></p>
+            <p>Tình trạng: <b id="status"></b></p>
+        </div>
 
-      <div class="container my-3">
-        <div class="card-body-custom p-4 mx-auto" style="max-width: 600px;">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title"><span id="location"></span> - <span id="currentDate"></span></h4>
-                    <p>Nhiệt độ: <b id="temperature"></b>°C</p>
-                    <p>Cảm giác như: <b id="feelsLike"></b>°C</p>
-                    <p>Độ ẩm: <b id="humidity"></b></p>
-                    <p>Tình trạng: <b id="status"></b></p>
-                   </div>
+        <!-- Countdown -->
+        <div class="card-custom countdown">
+            <h2 id="headline"></h2>
+            <div id="countdown" class="d-grid countdown-grid">
+                <div class="countdown-item"><span id="days">--</span><span>Ngày</span></div>
+                <div class="countdown-item"><span id="hours">--</span><span>Giờ</span></div>
+                <div class="countdown-item"><span id="minutes">--</span><span>Phút</span></div>
+                <div class="countdown-item"><span id="seconds">--</span><span>Giây</span></div>
+            </div>
+            <div id="content" class="emoji mt-4" style="display: none;">
+                <span class="h1 mx-1">🥳</span>
+                <span class="h1 mx-1">🎉</span>
+                <span class="h1 mx-1">🥳</span>
             </div>
         </div>
-    </div>
-    
 
-    <div class="container my-3">
-        <div class="card-body-custom p-4 mx-auto" style="max-width: 600px;">
-            <div class="card title-tool">
-            <div class="card-body text-center">
-                <h2 id="headline" class="mb-4"></h2>
-                <div id="countdown" class="d-flex justify-content-around">
-                    <div>
-                        <span id="days" class="h2 d-block">--</span>
-                        <span>Ngày</span>
-                    </div>
-                    <div>
-                        <span id="hours" class="h2 d-block">--</span>
-                        <span>Giờ</span>
-                    </div>
-                    <div>
-                        <span id="minutes" class="h2 d-block">--</span>
-                        <span>Phút</span>
-                    </div>
-                    <div>
-                        <span id="seconds" class="h2 d-block">--</span>
-                        <span>Giây</span>
-                    </div>
-                </div>
-                <div id="content" class="emoji mt-4">
-                    <span class="h1 mx-1">🥳</span>
-                    <span class="h1 mx-1">🎉</span>
-                    <span class="h1 mx-1">🥳</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <div class="container my-3">
-        <div class="card-body-custom p-4 mx-auto" style="max-width: 600px;">
+        <!-- Post Section -->
+        <div class="card-custom post-input">
             <div class="d-flex align-items-center mb-4">
-                <img src="avatar.svg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">
-                <textarea type="text" id="contentInput" name="CONTENT" class="form-control flex-grow-1" placeholder="Có gì mới?"></textarea>
+                <img src="avatar.svg" alt="User Avatar" class="rounded-circle me-2" width="40" height="40">
+                <textarea id="contentInput" class="form-control" placeholder="Có gì mới?" rows="3"></textarea>
             </div>
-              <!-- Thêm một phần tử để hiển thị thông báo -->
-              <div id="message" class="mt-3"></div>
-            <button type="submit" class="btn btn-secondary-custom w-100 mb-4" id="submitBtn">Đăng</button>
-        
-            <div id="data"></div>
+            <div id="message" class="mb-3"></div>
+            <button id="submitBtn" class="btn w-100">Đăng</button>
+            <div id="data" class="mt-4"></div>
         </div>
     </div>
 
-
-
-
-     <!-- Thêm jQuery từ CDN -->
-     <script src="fw/jq.js"></script>
-
-     <script>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
         $(document).ready(function () {
+            // Fetch and Render Posts
             function fetchDataAndRender() {
                 const url = "https://opensheet.elk.sh/15cyTIgpNtdJEoY2Mmp4mq6jln2JCBJHOmLGJbsorjeE/blog!A1:Z1000";
-                
-                $.ajax({
-                    url: url,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (data) {
-                        // Đảo ngược dữ liệu
-                        const reversedData = data.reverse();
-        
-                        // Tạo HTML và chèn vào DOM
-                        const $container = $('#data');
-        
-                        reversedData.forEach(item => {
-                            // Kiểm tra các key để đảm bảo không có key nào rỗng trước khi hiển thị
-                            const title = item.TITLE ? item.TITLE : '';
-                            const content = item.CONTENT ? item.CONTENT : '';
-                            const date = item.DATE ? item.DATE : '';
-        
-                            // Nếu cả TITLE, CONTENT và DATE đều rỗng, không tạo HTML
-                            if (!title && !content && !date) return;
-        
-                            const html = `
-                                <div class="mb-4 pb-4 border-bottom">
-                                    <div class="d-flex align-items-start">
-                                        <img src="avatar.svg" alt="User Avatar" class="rounded-circle me-2" width="32" height="32">              
-                                        <div class="flex-grow-1">
-                                            ${title ? `<p class="fw-bold mb-1 hns-black">${title} <span class="text-muted-custom small">${date}</span></p>` : ''}
-                                            ${content ? `<p>${content}</p>` : ''}
-                                        </div>
+                $.getJSON(url, function (data) {
+                    const $container = $('#data');
+                    $container.empty();
+                    data.reverse().forEach(item => {
+                        if (!item.TITLE && !item.CONTENT && !item.DATE) return;
+                        const html = `
+                            <div class="post-item mb-4">
+                                <div class="d-flex align-items-start">
+                                    <img src="avatar.svg" alt="User Avatar" class="rounded-circle me-2" width="40" height="40">
+                                    <div>
+                                        ${item.TITLE ? `<p class="fw-bold mb-1">${item.TITLE} <small class="text-muted">${item.DATE}</small></p>` : ''}
+                                        ${item.CONTENT ? `<p>${item.CONTENT}</p>` : ''}
                                     </div>
                                 </div>
-                            `;
-                            $container.append(html);
-                        });
-                    },
-                    error: function (error) {
-                        console.error("Lỗi khi lấy dữ liệu:", error);
-                    }
+                            </div>
+                        `;
+                        $container.append(html);
+                    });
+                }).fail(function (error) {
+                    console.error("Lỗi khi lấy dữ liệu:", error);
                 });
             }
-        
-            // Gọi hàm khi trang tải
             fetchDataAndRender();
-        });
-        </script>
-        
- 
-<script>
-    $(document).ready(function() {
-        $('#submitBtn').on('click', function() {
-            const content = $('#contentInput').val().trim().replace(/\n/g, '<br>'); // Thay thế ký tự xuống dòng
-            const messageDiv = $('#message');
-             // Vô hiệu hóa nút sau khi nhấn
-             $('#submitBtn').prop('disabled', true);
 
-            // Kiểm tra input có rỗng không
-            if (content === '') {
-                messageDiv.text('Vui lòng nhập nội dung.').css('color', 'red'); // Đặt màu đỏ cho thông báo lỗi
-                hideMessage(messageDiv); // Ẩn thông báo sau 3 giây
-                $('#submitBtn').prop('disabled', false);
-            } else if (content != '') {
-            
-    $.ajax({
-        url: `https://sheet.hns.workers.dev/?CONTENT=${encodeURIComponent(content)}`,
-        type: 'POST', // Hoặc 'POST' nếu cần
-    });
-    
-    $('#contentInput').val('')
-    messageDiv.text('Đã đăng. Trang sẽ tải lại sau 30 giây hoặc làm mới trang.').css('color', 'green'); 
-    hideMessage(messageDiv); // Ẩn thông báo sau 3 giây
-    // Cho phép nhấn lại nút sau 3 giây để hạn chế nhấn liên tục
-    setTimeout(function() {
-                        $('#submitBtn').prop('disabled', false);
-                    }, 3000);
-    load()
-}         
-        });
-    
-        function load() {
-      // Làm mới trang sau 30 giây
-    setTimeout(function() {
-        location.reload(); // Tải lại trang
-    }, 30000); // 30 giây = 30000 ms
-}
+            // Submit Post
+            $('#submitBtn').on('click', function () {
+                const content = $('#contentInput').val().trim().replace(/\n/g, '<br>');
+                const $message = $('#message');
+                $(this).prop('disabled', true);
 
-        // Hàm ẩn thông báo
-        function hideMessage(messageDiv) {
-            setTimeout(() => {
-                messageDiv.text(''); // Xóa nội dung thông báo
-            }, 3000); // Ẩn sau 3 giây
-        }
-    });
+                if (!content) {
+                    $message.text('Vui lòng nhập nội dung.').css('color', 'red');
+                    setTimeout(() => $message.text(''), 3000);
+                    $(this).prop('disabled', false);
+                } else {
+                    $.ajax({
+                        url: `https://sheet.hns.workers.dev/?CONTENT=${encodeURIComponent(content)}`,
+                        type: 'POST'
+                    });
+                    $('#contentInput').val('');
+                    $message.text('Đã đăng. Trang sẽ tải lại sau 30 giây.').css('color', 'green');
+                    setTimeout(() => $message.text(''), 3000);
+                    setTimeout(() => location.reload(), 30000);
+                    setTimeout(() => $(this).prop('disabled', false), 3000);
+                }
+            });
+
+            // Weather
+            fetch('https://weather-tayninh.hns.workers.dev/')
+                .then(response => response.json())
+                .then(data => {
+                    const weather = data.Data.data.datainfo;
+                    $('#location').text(weather.location);
+                    $('#currentDate').text(weather.currentDate);
+                    $('#temperature').text(weather.temperature);
+                    $('#feelsLike').text(weather.feels_like);
+                    $('#humidity').text(weather.humidity);
+                    $('#status').text(weather.status);
+                })
+                .catch(error => console.error('Lỗi thời tiết:', error));
+
+            // Countdown
+            const apiUrl = "https://opensheet.elk.sh/15cyTIgpNtdJEoY2Mmp4mq6jln2JCBJHOmLGJbsorjeE/app!A1:Z2";
+            $.getJSON(apiUrl, function (data) {
+                if (data.length > 0) {
+                    const { date, txt, status } = data[0];
+                    const countDown = new Date(date).getTime();
+                    const x = setInterval(function () {
+                        const now = new Date().getTime();
+                        const distance = countDown - now;
+                        $('#headline').text(txt);
+                        $('#days').text(Math.floor(distance / (1000 * 60 * 60 * 24)));
+                        $('#hours').text(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                        $('#minutes').text(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+                        $('#seconds').text(Math.floor((distance % (1000 * 60)) / 1000));
+
+                        if (distance < 0) {
+                            $('#headline').text(status);
+                            $('#countdown').hide();
+                            $('#content').show();
+                            clearInterval(x);
+                        }
+                    }, 1000);
+                }
+            }).fail(function () {
+                console.error("Lỗi API countdown:", error);
+            });
+        });
     </script>
-    
-
-<script>
-    const url = 'https://weather-tayninh.hns.workers.dev/';
-    fetch(url)
-        .then(response => response.json()) // Chuyển đổi phản hồi thành đối tượng JSON
-        .then(data => {
-            const weatherData = data.Data; // Sửa lỗi cú pháp: `const` thay vì `cost`
-   
-            // Display current weather
-            document.getElementById("location").innerText = weatherData.data.datainfo.location;
-            document.getElementById("currentDate").innerText = weatherData.data.datainfo.currentDate;
-            document.getElementById("temperature").innerText = weatherData.data.datainfo.temperature;
-            document.getElementById("feelsLike").innerText = weatherData.data.datainfo.feels_like;
-            document.getElementById("humidity").innerText = weatherData.data.datainfo.humidity;
-            document.getElementById("status").innerText = weatherData.data.datainfo.status;
-        })
-        .catch(error => {
-            console.error('Có lỗi xảy ra:', error);
-        });
-</script>
-<script>
-$(document).ready(function () {
-    const apiUrl = "https://opensheet.elk.sh/15cyTIgpNtdJEoY2Mmp4mq6jln2JCBJHOmLGJbsorjeE/app!A1:Z2";
-
-    // Hàm đếm ngược
-    function startCountdown(date, txt, status) {
-        const second = 1000,
-              minute = second * 60,
-              hour = minute * 60,
-              day = hour * 24;
-
-        let today = new Date(),
-            dd = String(today.getDate()).padStart(2, "0"),
-            mm = String(today.getMonth() + 1).padStart(2, "0"),
-            yyyy = today.getFullYear(),
-            nextYear = yyyy + 1,
-            dayMonth = date,
-            targetDate = dayMonth + yyyy;
-
-        today = mm + "/" + dd + "/" + yyyy;
-
-        if (today > targetDate) {
-            targetDate = dayMonth + nextYear;
-        }
-
-        const countDown = new Date(targetDate).getTime();
-
-        const x = setInterval(function () {
-            const now = new Date().getTime(),
-                  distance = countDown - now;
-
-            $("#headline").text(txt);
-            $("#days").text(Math.floor(distance / day));
-            $("#hours").text(Math.floor((distance % day) / hour));
-            $("#minutes").text(Math.floor((distance % hour) / minute));
-            $("#seconds").text(Math.floor((distance % minute) / second));
-
-            // Nếu thời gian đã hết
-            if (distance < 0) {
-                $("#headline").text(status);
-                $("#countdown").hide();
-                $("#content").show();
-                clearInterval(x);
-            }
-        }, 1000);
-    }
-
-    // Gọi API để lấy dữ liệu và khởi động đếm ngược
-    $.getJSON(apiUrl, function (data) {
-        if (data.length > 0) {
-            const eventData = data[0];
-            const date = eventData.date;
-            const txt = eventData.txt;
-            const status = eventData.status;
-
-            // Khởi động đếm ngược
-            startCountdown(date, txt, status);
-        }
-    }).fail(function () {
-        console.error("Lỗi khi lấy dữ liệu từ API");
-    });
-});
-</script>
-
 </body>
 </html>
