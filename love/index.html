@@ -1,158 +1,213 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Meta Tags Tối Ưu -->
+    <title>Tài ❤️ Hiếu</title>
+    <meta name="description" content="Hành trình yêu thương của chúng mình... ❤️">
 
+    <!-- Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Primary Meta Tags -->
-<title>Tài ❤️ Hiếu</title>
-<meta name="title" content="Tài ❤️ Hiếu" />
-<meta name="description" content="Đếm ngày yếu của tụi mình... ❤️" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://harrydang.pages.dev/love/" />
-<meta property="og:title" content="Tài ❤️ Hiếu" />
-<meta property="og:description" content="Đếm ngày yếu của tụi mình... ❤️" />
-<meta property="og:image" content="https://s6.imgcdn.dev/WPHOo.png " />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://harrydang.pages.dev/love/" />
-<meta property="twitter:title" content="Tài ❤️ Hiếu" />
-<meta property="twitter:description" content="Đếm ngày yếu của tụi mình... ❤️" />
-<meta property="twitter:image" content="https://s6.imgcdn.dev/WPHOo.png " />
+        body {
+            background: linear-gradient(135deg, #f5e9f0 0%, #e8f0fe 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-<!-- Meta Tags Generated with https://metatags.io -->
+        .main {
+            padding: 4rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        .love-counter {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
 
+        .love-counter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(254, 56, 95, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
 
-  <!--- import Lib css --->
-  <link rel="stylesheet" href="../fw/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-minimal.css" />
-  <!--- END --->
-  
-  <!--- Font --->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
-<script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-<!--- END --->
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
 
-<style>
-  *{
-    font-family: 'Comfortaa',sans-serif;
-}
-.nav-link {
-  color: #000
-}
-.main{
-  padding-top: 1.5rem !important
-}
-.fs-8{
-  font-size: 0.8rem !important
-}    
-/* Color */
-.cl-w{
-  color: #fff;
-}
-.cl-red{
-  color:#fe385f
-}
-.cl-red_1{
-  color: #e43255
-}
-</style>
+        .subtitle {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #fe385f;
+            margin: 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .heart-icon {
+            margin: 1rem 0;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .counter-item {
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(254, 56, 95, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .counter-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .counter-value {
+            font-size: 2.5rem;
+            color: #fe385f;
+            font-weight: bold;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            color: #34495e;
+            text-transform: uppercase;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .counter-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2rem; }
+            .names { font-size: 1.5rem; }
+        }
+    </style>
 </head>
-
 <body>
-  <br/><br/><br/><br/><br/>
-<main class="main p-3 col-md-8 mx-auto">
+    <main class="main">
+        <section class="love-counter">
+            <h1>Hành Trình Yêu Thương</h1>
+            <p class="subtitle">Từ ngày 22/8/2021 đến hôm nay</p>
+            
+            <div class="names">Nguyễn Tấn Tài</div>
+            <lord-icon
+                class="heart-icon"
+                src="https://cdn.lordicon.com/xryjrepg.json"
+                trigger="loop"
+                delay="50"
+                colors="primary:#fe385f"
+                style="width:60px;height:60px">
+            </lord-icon>
+            <div class="names">Đặng Trung Hiếu</div>
 
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-value" id="yearResult">0</div>
+                    <div class="counter-label">Năm</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="monthResult">0</div>
+                    <div class="counter-label">Tháng</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="dayResult">0</div>
+                    <div class="counter-label">Ngày</div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<!-- PHẦN ĐẾM NGƯợC -->  
-  <section class="text-center shadow-sm border bg-white rounded">
-<div class="p-5">   
-   <h1 class="fw-bold">ĐẾM NGÀY YÊU</h1>
-         <p>Từ ngày 22/8/2021 đến ngày hôm nay</p><br>
-    <h1 class="fw-bold">Nguyễn Tấn Tài</h1>
-<lord-icon
-    src="https://cdn.lordicon.com/xryjrepg.json"
-    trigger="loop"
-    delay="50"
-    colors="primary:#fe385f"
-    style="width:50px;height:50px">
-</lord-icon>
-  <h1 class="fw-bold">Đặng Trung Hiếu</h1>
- 
-  <br>
-  <p>đã bên nhau</p>
-  
-   <div>
-     <b class="fs-2 odometer" id="yearResult"></b>
-     <br>Năm
- </div>
- <br>
- <div>
-        <b class="fs-2 odometer" id="monthResult"></b>
-        <br>Tháng
-   </div>
-   <br>
-   <div>
-       <b class="fs-2 odometer" id="dayResult"></b>
-    <br>Ngày
-</div>
- </div> 
-  </section>
-     </main>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://loktar00.github.io/JQuery-Snowfall/snowfall.jquery.min.js"></script>
 
+    <script>
+        $(document).ready(function() {
+            // Snowfall effect
+            $(document).snowfall({
+                image: "https://s6.imgcdn.dev/x7vn9.png",
+                minSize: 15,
+                maxSize: 15,
+                maxSpeed: 1,
+                flakeCount: 25
+            });
 
-  <script src="../fw/jq.js"></script>
-  <script src="http://github.hubspot.com/odometer/odometer.js"></script>
+            // Function to update the counter
+            function updateCounter() {
+                var startDate = moment("2021-08-22");
+                var currentDate = moment();
+                
+                var dayDiff = currentDate.diff(startDate, "days");
+                var yearDiff = currentDate.diff(startDate, "years");
+                var monthDiff = currentDate.diff(startDate, "months") % 12;
 
-  <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script defer="defer" src="https://loktar00.github.io/JQuery-Snowfall/snowfall.jquery.min.js"></script>
-  
-  
-   <script>
-$(document).ready(function() {
-    /// Flag snow
-$(document).snowfall({
-               image: "https://s6.imgcdn.dev/x7vn9.png",
-               minSize: 15,
-               maxSize: 15,
-               maxSpeed: 2,
-               flakeCount: 20
-             });
- //// End Flag snow
+                // Update values in DOM
+                $("#yearResult").text(yearDiff);
+                $("#monthResult").text(monthDiff);
+                $("#dayResult").text(dayDiff);
+            }
 
-  
-  
-  // Ngày bắt đầu (22/8/2021)
-  var startDate = moment("2021-08-22");
+            // Initial update
+            updateCounter();
 
-  // Ngày hiện tại
-  var currentDate = moment();
-
-  // Tính số ngày
-  var dayDiff = currentDate.diff(startDate, "days");
-
-  // Tính số năm và số tháng
-  var yearDiff = currentDate.diff(startDate, "years");
-  var monthDiff = currentDate.diff(startDate, "months") % 12;
- 
-setTimeout(function(){
-    $("#dayResult").html(dayDiff);
-    $("#yearResult").html(yearDiff);
-    $("#monthResult").html( monthDiff);
-}, 100);
-        
- });
-</script>
-
+            // Update every second (optional)
+            setInterval(updateCounter, 1000);
+        });
+    </script>
 </body>
-
 </html>
