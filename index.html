@@ -7,22 +7,22 @@
     
     <!-- Primary Meta Tags -->
     <title>hieunotes | Trang cá nhân của Đặng Trung Hiếu</title>
-    <meta name="title" content="hieunotes | Trang cá nhân" />
-    <meta name="description" content="Không gian sáng tạo và chia sẻ của Đặng Trung Hiếu" />
+    <meta name="title" content="hieunotes" />
+    <meta name="description" content="Không gian của Đặng Trung Hiếu" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="/" />
-    <meta property="og:title" content="hieunotes | Trang cá nhân" />
-    <meta property="og:description" content="Không gian sáng tạo và chia sẻ của Đặng Trung Hiếu" />
-    <meta property="og:image" content="https://i.imgur.com/Jc8aZP5.png" />
+    <meta property="og:title" content="hieunotes" />
+    <meta property="og:description" content="Không gian của Đặng Trung Hiếu" />
+    <meta property="og:image" content="https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_k%E1%BB%B3_Vi%E1%BB%87t_Nam#/media/T%E1%BA%ADp_tin:Flag_of_Vietnam.svg" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="/" />
-    <meta property="twitter:title" content="hieunotes | Trang cá nhân" />
-    <meta property="twitter:description" content="Không gian sáng tạo và chia sẻ của Đặng Trung Hiếu" />
-    <meta property="twitter:image" content="https://i.imgur.com/Jc8aZP5.png" />
+    <meta property="twitter:title" content="hieunotes" />
+    <meta property="twitter:description" content="Không gian của Đặng Trung Hiếu" />
+    <meta property="twitter:image" content="https://vi.wikipedia.org/wiki/Qu%E1%BB%91c_k%E1%BB%B3_Vi%E1%BB%87t_Nam#/media/T%E1%BA%ADp_tin:Flag_of_Vietnam.svg" />
     
     <!-- Favicon -->
     <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -222,81 +222,6 @@
             color: var(--text-light);
         }
 
-        /* Post Section */
-        .post-input-container {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .post-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .post-textarea {
-            flex: 1;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            resize: none;
-            min-height: 100px;
-            transition: var(--transition);
-        }
-
-        .post-textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .post-button {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 0.75rem 1.5rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 100%;
-        }
-
-        .post-button:hover {
-            background-color: var(--primary-hover);
-        }
-
-        .post-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .post-item:last-child {
-            border-bottom: none;
-        }
-
-        .post-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-
-        .post-user {
-            font-weight: 600;
-            margin-right: 0.5rem;
-        }
-
-        .post-date {
-            color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        .post-content {
-            margin-bottom: 0.75rem;
-        }
-
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -371,14 +296,9 @@
         <!-- Navigation -->
         <nav class="nav-container fade-in">
             <a href="//tayninh.vercel.app" target="_blank" class="nav-link active">
-                <i class="bi bi-lightning-charge-fill"></i> Lịch cúp điện
+                <i class="bi bi-lightning-charge-fill"></i> Lịch cúp điện Tây Ninh
             </a>
-            <a href="#" class="nav-link">
-                <i class="bi bi-stars"></i> Không gian
-            </a>
-            <a href="#" class="nav-link">
-                <i class="bi bi-link-45deg"></i> Rút gọn link
-            </a>
+
         </nav>
 
         <!-- Weather Widget -->
@@ -448,92 +368,11 @@
             </div>
         </div>
 
-        <!-- Post Section -->
-        <div class="card fade-in">
-            <h2 class="card-title">
-                <i class="bi bi-pencil-square"></i> Chia sẻ
-            </h2>
-            
-            <div class="post-input-container">
-                <img src="avatar.svg" alt="Avatar" class="post-avatar">
-                <textarea id="contentInput" class="post-textarea" placeholder="Có gì mới?"></textarea>
-            </div>
-            
-            <div id="message" class="mb-3 text-center"></div>
-            
-            <button id="submitBtn" class="post-button">
-                <i class="bi bi-send-fill"></i> Đăng bài
-            </button>
-            
-            <div id="data" class="mt-4"></div>
-        </div>
-    </div>
-
+     
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Fetch and Render Posts
-            function fetchDataAndRender() {
-                const url = "https://opensheet.elk.sh/15cyTIgpNtdJEoY2Mmp4mq6jln2JCBJHOmLGJbsorjeE/blog!A1:Z1000";
-                $.getJSON(url, function (data) {
-                    const $container = $('#data');
-                    $container.empty();
-                    
-                    data.reverse().forEach(item => {
-                        if (!item.TITLE && !item.CONTENT && !item.DATE) return;
-                        
-                        const html = `
-                            <div class="post-item">
-                                <div class="post-header">
-                                    <img src="avatar.svg" alt="Avatar" class="post-avatar me-2">
-                                    <div>
-                                        <span class="post-user">${item.TITLE || 'Ẩn danh'}</span>
-                                        <span class="post-date">${item.DATE || ''}</span>
-                                    </div>
-                                </div>
-                                <div class="post-content">${item.CONTENT || ''}</div>
-                            </div>
-                        `;
-                        
-                        $container.append(html);
-                    });
-                }).fail(function (error) {
-                    console.error("Lỗi khi lấy dữ liệu:", error);
-                    $('#data').html('<div class="alert alert-danger">Không thể tải bài viết. Vui lòng thử lại sau.</div>');
-                });
-            }
-            
-            fetchDataAndRender();
-
-            // Submit Post
-            $('#submitBtn').on('click', function () {
-                const content = $('#contentInput').val().trim();
-                const $message = $('#message');
-                const $btn = $(this);
-                
-                $btn.prop('disabled', true).html('<i class="bi bi-arrow-repeat spin"></i> Đang đăng...');
-
-                if (!content) {
-                    $message.text('Vui lòng nhập nội dung.').css('color', '#ef4444');
-                    setTimeout(() => $message.text(''), 3000);
-                    $btn.prop('disabled', false).html('<i class="bi bi-send-fill"></i> Đăng bài');
-                    return;
-                }
-
-                $.ajax({
-                    url: `https://sheet.hns.workers.dev/?CONTENT=${encodeURIComponent(content)}`,
-                    type: 'POST'
-                }).then(() => {
-                    $('#contentInput').val('');
-                    $message.text('Đã đăng thành công! Trang sẽ tự động tải lại...').css('color', '#16a34a');
-                    setTimeout(() => location.reload(), 2000);
-                }).catch(() => {
-                    $message.text('Lỗi khi đăng bài. Vui lòng thử lại.').css('color', '#ef4444');
-                    $btn.prop('disabled', false).html('<i class="bi bi-send-fill"></i> Đăng bài');
-                });
-            });
-
             // Weather
             fetch('https://weather-tayninh.hns.workers.dev/')
                 .then(response => response.json())
@@ -549,36 +388,62 @@
                     $('#location').text('Tây Ninh');
                     $('#status').text('Không thể tải dữ liệu');
                 });
+// end weather
 
-            // Countdown
-            const apiUrl = "https://opensheet.elk.sh/15cyTIgpNtdJEoY2Mmp4mq6jln2JCBJHOmLGJbsorjeE/app!A1:Z2";
-            $.getJSON(apiUrl, function (data) {
-                if (data.length > 0) {
-                    const { date, txt, status } = data[0];
-                    const countDown = new Date(date).getTime();
-                    
-                    const x = setInterval(function () {
-                        const now = new Date().getTime();
-                        const distance = countDown - now;
-                        
-                        $('#headline').text(txt);
-                        $('#days').text(Math.floor(distance / (1000 * 60 * 60 * 24)));
-                        $('#hours').text(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-                        $('#minutes').text(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-                        $('#seconds').text(Math.floor((distance % (1000 * 60)) / 1000));
+$(document).ready(function() {
+    function updateCountdown() {
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        
+        // Tạo ngày sinh nhật cho năm hiện tại
+        let birthday = new Date(currentYear, 10, 3); // Tháng 11 là 10 (0-indexed)
+        
+        // Nếu sinh nhật đã qua trong năm nay, chuyển sang năm sau
+        if (now > birthday) {
+            birthday = new Date(currentYear + 1, 10, 3);
+        }
+        
+        // Tính thời gian còn lại
+        const timeRemaining = birthday - now;
+        
+        if (timeRemaining <= 0) {
+            // Đã đến sinh nhật
+            $('#headline').text('Chúc mừng sinh nhật! 🎂');
+            $('#countdown').hide();
+            $('#content').show();
+        } else {
+            // Tính ngày, giờ, phút, giây
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+            // Cập nhật UI
+            $('#days').text(days.toString().padStart(2, '0'));
+            $('#hours').text(hours.toString().padStart(2, '0'));
+            $('#minutes').text(minutes.toString().padStart(2, '0'));
+            $('#seconds').text(seconds.toString().padStart(2, '0'));
+            
+            $('#headline').text('Đếm ngược sinh nhật');
+            $('#countdown').show();
+            $('#content').hide();
+        }
+    }
+    
+    // Cập nhật ngay lập tức
+    updateCountdown();
+    
+    // Cập nhật mỗi giây
+    setInterval(updateCountdown, 1000);
+});
 
-                        if (distance < 0) {
-                            $('#headline').text(status);
-                            $('#countdown').hide();
-                            $('#content').show();
-                            clearInterval(x);
-                        }
-                    }, 1000);
-                }
-            }).fail(function (error) {
-                console.error("Lỗi API countdown:", error);
-                $('#headline').text('Sự kiện sắp diễn ra');
-            });
+
+
+
+
+
+
+
         });
     </script>
 </body>
