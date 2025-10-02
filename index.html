@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- Primary Meta Tags -->
-    <title>hieunotes | Trang cá nhân của Đặng Trung Hiếu</title>
+    <title>hieunotes</title>
     <meta name="title" content="hieunotes" />
     <meta name="description" content="Không gian của Đặng Trung Hiếu" />
     
@@ -264,6 +264,59 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+         /* Lottery Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .lottery-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        .lottery-table th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lottery-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .lottery-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .lottery-table tr:nth-child(even) {
+            background-color: rgba(37, 99, 235, 0.03);
+        }
+
+        .lottery-table tr:hover {
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .prize-column {
+            background-color: rgba(37, 99, 235, 0.1);
+            font-weight: 600;
+        }
+
+        .special-prize {
+            color: #dc2626;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -293,14 +346,84 @@
             </div>
         </header>
 
-        <!-- Navigation -->
-        <!--nav class="nav-container fade-in">
-            <a href="//tayninh.vercel.app" target="_blank" class="nav-link active">
-                <i class="bi bi-lightning-charge-fill"></i> Lịch cúp điện Tây Ninh
-            </a>
-
-    </nav-->
-
+         <!-- HOÀNG SA & TRƯỜNG SA-->
+        <style>
+      .true {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .line-center {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 2rem;
+            background-color: #78140f;
+            box-shadow: 0 4px 12px rgba(120, 20, 15, 0.4);
+            max-width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .line-center:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(120, 20, 15, 0.5);
+        }
+        
+        .inc-icon {
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon-20 img {
+            width: 25px;
+            height: 25px;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 480px) {
+            .line-center {
+                flex-direction: column;
+                gap: 8px;
+                padding: 16px 20px;
+                text-align: center;
+            }
+            
+            .line-center span {
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .line-center {
+                padding: 14px 16px;
+            }
+            
+            .line-center span {
+                font-size: 14px;
+            }
+            
+            .icon-20 img {
+                width: 20px;
+                height: px;
+            }
+        }
+ </style>
+  <div class="true">
+        <div class="line-center">
+            <div class="inc-icon icon-20">
+                <img src="https://www.rophim.mx/images/vn_flag.svg" alt="Vietnam">
+            </div>
+            <span>Hoàng Sa & Trường Sa là của Việt Nam!</span>
+        </div>
+    </div>
+   
         <!-- Weather Widget -->
         <div class="card fade-in">
             <h2 class="card-title">
@@ -368,7 +491,30 @@
             </div>
         </div>
 
-     
+  <!-- Lottery Results Card -->
+        <div class="card fade-in">
+            <h2 class="card-title">
+                <i class="bi bi-ticket-perforated"></i> Kết quả xổ số miền nam hôm nay
+            </h2>
+            <div class="table-container">
+                <table class="lottery-table" id="lotteryTable">
+                    <thead>
+                        <tr>
+                            <th>Giải</th>
+                            <!-- Các cột tỉnh sẽ được thêm động ở đây -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dữ liệu sẽ được thêm động ở đây -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+  
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -438,12 +584,102 @@ $(document).ready(function() {
 });
 
 
+        });
+
+    </script>
 
 
 
+<!--Lottery SCRIPT-->
+     <script>
+        $(document).ready(function() {
+            // Lấy ngày hôm nay và định dạng thành YYYY-MM-DD
+            const today = new Date().toISOString().split('T')[0];
+            // Đặt giá trị mặc định cho input date là ngày hôm nay
+            $('#date').val(today);
 
+            // Gọi API với ngày hôm nay khi trang được tải
+            fetchData(today);
 
+            // Lắng nghe sự kiện thay đổi ngày
+            $('#date').change(function() {
+                const selectedDate = $(this).val();
+                fetchData(selectedDate);
+            });
 
+            // Xử lý sự kiện tải về
+            $('#downloadBtn').click(function() {
+                html2canvas(document.querySelector('.card:last-child')).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `ket-qua-xo-so-${$('#date').val()}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            });
+
+            function fetchData(date) {
+                const apiUrl = `https://api.xosothantai.mobi/app/json-kq-miennam?ngay_quay=${date}`;
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        // Xóa dữ liệu cũ trong bảng
+                        $('#lotteryTable thead tr').empty();
+                        $('#lotteryTable tbody').empty();
+
+                        // Thêm cột "Giải" vào thead
+                        $('#lotteryTable thead tr').append('<th class="prize-column">Giải</th>');
+
+                        // Lấy danh sách các tỉnh từ dữ liệu API
+                        const provinces = data.map(item => item.provinceName);
+
+                        // Thêm các cột tỉnh vào thead
+                        provinces.forEach(province => {
+                            $('#lotteryTable thead tr').append(`<th>${province}</th>`);
+                        });
+
+                        // Tạo một đối tượng để lưu trữ dữ liệu theo giải
+                        const resultsByPrize = {
+                            'G8': [],
+                            'G7': [],
+                            'G6': [],
+                            'G5': [],
+                            'G4': [],
+                            'G3': [],
+                            'G2': [],
+                            'G1': [],
+                            'ĐB': []
+                        };
+
+                        // Lặp qua dữ liệu từ API để tổ chức lại theo giải
+                        data.forEach(item => {
+                            for (const [prize, numbers] of Object.entries(item.lotData)) {
+                                const prizeKey = prize === 'DB' ? 'ĐB' : `G${prize}`;
+                                if (prizeKey === 'ĐB') {
+                                    resultsByPrize[prizeKey].push(numbers.map(num => `<span class="special-prize">${num}</span>`).join('<br>'));
+                                } else {
+                                    resultsByPrize[prizeKey].push(numbers.join('<br>'));
+                                }
+                            }
+                        });
+
+                        // Hiển thị dữ liệu đã tổ chức lại lên bảng
+                        for (const [prize, numbers] of Object.entries(resultsByPrize)) {
+                            const row = `<tr>
+                                <td class="prize-column">${prize}</td>
+                                ${numbers.map(num => `<td>${num}</td>`).join('')}
+                            </tr>`;
+                            $('#lotteryTable tbody').append(row);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching data:', textStatus, errorThrown);
+                        $('#lotteryTable tbody').html(`<tr><td colspan="${provinces.length + 1}" class="text-center text-muted py-4">Không thể tải dữ liệu. Vui lòng thử lại sau.</td></tr>`);
+                    }
+                });
+            }
         });
     </script>
 </body>
